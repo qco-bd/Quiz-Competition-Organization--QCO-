@@ -1,1 +1,0 @@
-# Quiz-Competition-Organization--QCO-
