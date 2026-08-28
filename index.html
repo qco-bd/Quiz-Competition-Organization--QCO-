@@ -1,269 +1,668 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>QCO | Quiz Competition Organization</title><style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================
+   QCO MAIN STYLE
+   ========================= */
 
-    <title>QCO | Quiz Competition Organization</title>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link rel="stylesheet" href="style.css">
-</head>
+html {
+    scroll-behavior: smooth;
+}
 
-<body>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fc;
+    color: #14213d;
+}
 
-<header class="site-header">
+/* HEADER */
 
-    <div class="header-top">
+.site-header {
+    width: 100%;
+    background: #071a3d;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+}
 
-        <div class="brand">
-            <div class="logo">QCO</div>
+.header-top {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-            <div class="tagline">
-                Quiz Competition Organization
-            </div>
-        </div>
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        <button class="menu-btn" onclick="openMenu()">
-            ☰
-        </button>
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    color: #f4b400;
+    letter-spacing: 2px;
+}
 
-    </div>
+.tagline {
+    font-size: 14px;
+    color: #ffffff;
+}
 
-</header>
+/* MENU BUTTON */
 
+.menu-btn {
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 8px;
+    background: #f4b400;
+    color: #071a3d;
+    font-size: 27px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+.menu-btn:hover {
+    background: #ffd75a;
+}
 
+/* SIDE MENU */
 
-<aside id="sideMenu" class="side-menu">
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -330px;
+    width: 310px;
+    height: 100vh;
+    background: white;
+    z-index: 2000;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
 
-    <div class="menu-header">
+.side-menu.active {
+    right: 0;
+}
 
-        <div class="menu-title">
-            QCO MENU
-        </div>
+.menu-header {
+    height: 75px;
+    padding: 0 20px;
+    background: #071a3d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        <button class="close-btn" onclick="closeMenu()">
-            ×
-        </button>
+.menu-title {
+    font-size: 20px;
+    font-weight: 800;
+}
 
-    </div>
+.close-btn {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
 
+.menu-content {
+    padding: 15px 0;
+}
 
-    <div class="menu-content">
+.menu-content a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 22px;
+    color: #14213d;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-bottom: 1px solid #e6eaf0;
+    transition: 0.2s;
+}
 
-        <a href="index.html">
-            <span>🏠</span>
-            <span>Home</span>
-        </a>
+.menu-content a:hover {
+    background: #eef4ff;
+    color: #0b3d91;
+    padding-left: 28px;
+}
 
-        <a href="about.html">
-            <span>ℹ️</span>
-            <span>About</span>
-        </a>
+.menu-content a span:first-child {
+    width: 25px;
+    text-align: center;
+}
 
-        <a href="events.html">
-            <span>🏆</span>
-            <span>Events</span>
-        </a>
+/* OVERLAY */
 
-        <a href="registration.html">
-            <span>📝</span>
-            <span>Registration</span>
-        </a>
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
 
-        <a href="results.html">
-            <span>📊</span>
-            <span>Results</span>
-        </a>
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
 
-        <a href="leaderboard.html">
-            <span>🥇</span>
-            <span>Leaderboard</span>
-        </a>
+/* HERO */
 
-        <a href="prizes.html">
-            <span>🎁</span>
-            <span>Prizes</span>
-        </a>
+.hero {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    color: white;
 
-        <a href="contact.html">
-            <span>📞</span>
-            <span>Contact</span>
-        </a>
+    background:
+        linear-gradient(
+            135deg,
+            #071a3d,
+            #0b3d91
+        );
+}
 
-    </div>
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
 
-</aside>
+.welcome {
+    color: #f4b400;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
 
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
 
-<section class="hero">
+.hero-content > p:not(.welcome) {
+    color: #e2eaf7;
+    font-size: 18px;
+    max-width: 650px;
+    margin: auto;
+}
 
-    <div class="hero-content">
+/* BUTTONS */
 
-        <p class="welcome">
-            WELCOME TO QCO
-        </p>
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
 
-        <h1>
-            QCO National GK
-            Championship 2026
-        </h1>
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 8px;
+    background: #f4b400;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 800;
+    border: 2px solid #f4b400;
+    transition: 0.3s;
+}
 
-        <p>
-            Test your knowledge, challenge yourself
-            and become a champion.
-        </p>
+.btn:hover {
+    background: #ffd75a;
+    border-color: #ffd75a;
+    transform: translateY(-2px);
+}
 
-        <div class="hero-buttons">
+.btn.secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
 
-            <a
-                href="https://form.svhrt.com/6a8e5863a00a75349c68c608"
-                class="btn"
-                target="_blank">
-                Register Now
-            </a>
+.btn.secondary:hover {
+    background: white;
+    color: #071a3d;
+}
 
-            <a href="events.html" class="btn secondary">
-                Explore Events
-            </a>
+/* STATS */
 
-        </div>
+.stats {
+    max-width: 1100px;
+    margin: -45px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
 
-    </div>
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
 
-</section>
+.stat-card {
+    background: white;
+    padding: 28px 20px;
+    text-align: center;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(7,26,61,0.12);
+}
 
+.stat-card h2 {
+    color: #0b3d91;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
 
-<section class="stats">
+.stat-card p {
+    color: #667085;
+}
 
-    <div class="stat-card">
-        <h2>2026</h2>
-        <p>Championship Year</p>
-    </div>
+/* SECTIONS */
 
-    <div class="stat-card">
-        <h2>QCO</h2>
-        <p>Quiz Competition Organization</p>
-    </div>
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 20px 20px;
+}
 
-    <div class="stat-card">
-        <h2>50 Tk</h2>
-        <p>Registration Fee</p>
-    </div>
+.section > h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #071a3d;
+    margin-bottom: 30px;
+}
 
-</section>
+/* CARD */
 
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e1e6ef;
+    box-shadow: 0 7px 25px rgba(7,26,61,0.07);
+}
 
-<section class="section">
+.card h3,
+.card h2 {
+    color: #0b3d91;
+    margin-bottom: 12px;
+}
 
-    <h2>About QCO</h2>
+.card p {
+    color: #667085;
+    margin-bottom: 15px;
+}
 
-    <div class="card">
+/* QUICK LINKS */
 
-        <h3>
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.quick-card {
+    background: white;
+    padding: 25px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #14213d;
+    border: 1px solid #e1e6ef;
+    box-shadow: 0 6px 20px rgba(7,26,61,0.06);
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.quick-card:hover {
+    transform: translateY(-5px);
+    border-color: #0b3d91;
+}
+
+.quick-icon {
+    font-size: 30px;
+}
+
+.quick-card strong {
+    font-size: 18px;
+    color: #0b3d91;
+}
+
+.quick-card span:last-child {
+    color: #667085;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 70px;
+    padding: 35px 20px;
+    text-align: center;
+    background: #04132d;
+    color: white;
+}
+
+footer p {
+    margin: 5px;
+    color: #c8d2e2;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        margin-top: -25px;
+    }
+
+    .quick-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header-top {
+        padding: 12px 15px;
+    }
+
+    .tagline {
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding: 65px 18px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-content > p:not(.welcome) {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
+
+    .side-menu {
+        width: 290px;
+    }
+}
+
+</style></head><body><!-- HEADER --><header class="site-header"><div class="header-top">
+
+    <div class="brand">
+        <div class="logo">QCO</div>
+
+        <div class="tagline">
             Quiz Competition Organization
-        </h3>
-
-        <p>
-            QCO is an educational organization focused on
-            quiz competitions, knowledge development and
-            student participation.
-        </p>
-
-        <a href="about.html" class="btn">
-            Learn More
-        </a>
-
+        </div>
     </div>
 
-</section>
+    <button class="menu-btn" onclick="openMenu()" aria-label="Open Menu">
+        ☰
+    </button>
 
+</div>
 
-<section class="section">
+</header><!-- OVERLAY --><div id="overlay" class="overlay" onclick="closeMenu()"></div><!-- SIDE MENU --><aside id="sideMenu" class="side-menu"><div class="menu-header">
 
-    <h2>Featured Event</h2>
+    <div class="menu-title">
+        QCO MENU
+    </div>
 
-    <div class="card">
+    <button class="close-btn" onclick="closeMenu()" aria-label="Close Menu">
+        ×
+    </button>
 
-        <h2>
-            🏆 QCO National GK Championship 2026
-        </h2>
+</div>
 
-        <p>
-            A knowledge-based competition where students
-            can test their general knowledge and compete
-            with other participants.
-        </p>
+<div class="menu-content">
 
-        <p>
-            <strong>Registration Fee:</strong> Tk 50
-        </p>
+    <a href="index.html" onclick="closeMenu()">
+        <span>🏠</span>
+        <span>Home</span>
+    </a>
+
+    <a href="about.html">
+        <span>ℹ️</span>
+        <span>About</span>
+    </a>
+
+    <a href="events.html">
+        <span>🏆</span>
+        <span>Events</span>
+    </a>
+
+    <a href="registration.html">
+        <span>📝</span>
+        <span>Registration</span>
+    </a>
+
+    <a href="results.html">
+        <span>📊</span>
+        <span>Results</span>
+    </a>
+
+    <a href="leaderboard.html">
+        <span>🥇</span>
+        <span>Leaderboard</span>
+    </a>
+
+    <a href="prizes.html">
+        <span>🎁</span>
+        <span>Prizes</span>
+    </a>
+
+    <a href="contact.html">
+        <span>📞</span>
+        <span>Contact</span>
+    </a>
+
+</div>
+
+</aside><!-- HERO --><section class="hero"><div class="hero-content">
+
+    <p class="welcome">
+        WELCOME TO QCO
+    </p>
+
+    <h1>
+        QCO National GK
+        Championship 2026
+    </h1>
+
+    <p>
+        Test your knowledge, challenge yourself
+        and become a champion.
+    </p>
+
+    <div class="hero-buttons">
 
         <a
             href="https://form.svhrt.com/6a8e5863a00a75349c68c608"
             class="btn"
             target="_blank">
-
             Register Now
+        </a>
 
+        <a href="events.html" class="btn secondary">
+            Explore Events
         </a>
 
     </div>
 
-</section>
+</div>
 
+</section><!-- STATS --><section class="stats"><div class="stat-card">
+    <h2>2026</h2>
+    <p>Championship Year</p>
+</div>
 
-<section class="section">
+<div class="stat-card">
+    <h2>QCO</h2>
+    <p>Quiz Competition Organization</p>
+</div>
 
-    <h2>Explore QCO</h2>
+<div class="stat-card">
+    <h2>50 Tk</h2>
+    <p>Registration Fee</p>
+</div>
 
-    <div class="quick-links">
+</section><!-- ABOUT --><section class="section"><h2>About QCO</h2>
 
-        <a href="events.html" class="quick-card">
-            <span class="quick-icon">🏆</span>
-            <strong>Events</strong>
-            <span>Explore competitions</span>
-        </a>
+<div class="card">
 
-        <a href="results.html" class="quick-card">
-            <span class="quick-icon">🥇</span>
-            <strong>Results</strong>
-            <span>View competition results</span>
-        </a>
-
-        <a href="leaderboard.html" class="quick-card">
-            <span class="quick-icon">📊</span>
-            <strong>Leaderboard</strong>
-            <span>See top participants</span>
-        </a>
-
-        <a href="contact.html" class="quick-card">
-            <span class="quick-icon">📞</span>
-            <strong>Contact</strong>
-            <span>Contact QCO</span>
-        </a>
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    <p>
-        © 2026 QCO. All Rights Reserved.
-    </p>
-
-    <p>
+    <h3>
         Quiz Competition Organization
+    </h3>
+
+    <p>
+        QCO is an educational organization focused on
+        quiz competitions, knowledge development and
+        student participation.
     </p>
 
-</footer>
+    <a href="about.html" class="btn">
+        Learn More
+    </a>
 
+</div>
 
-<script src="script.js"></script>
+</section><!-- FEATURED EVENT --><section class="section"><h2>Featured Event</h2>
 
-</body>
-      </html>
+<div class="card">
+
+    <h2>
+        🏆 QCO National GK Championship 2026
+    </h2>
+
+    <p>
+        A knowledge-based competition where students
+        can test their general knowledge and compete
+        with other participants.
+    </p>
+
+    <p>
+        <strong>Registration Fee:</strong> Tk 50
+    </p>
+
+    <a
+        href="https://form.svhrt.com/6a8e5863a00a75349c68c608"
+        class="btn"
+        target="_blank">
+
+        Register Now
+
+    </a>
+
+</div>
+
+</section><!-- EXPLORE --><section class="section"><h2>Explore QCO</h2>
+
+<div class="quick-links">
+
+    <a href="events.html" class="quick-card">
+        <span class="quick-icon">🏆</span>
+        <strong>Events</strong>
+        <span>Explore competitions</span>
+    </a>
+
+    <a href="results.html" class="quick-card">
+        <span class="quick-icon">🥇</span>
+        <strong>Results</strong>
+        <span>View competition results</span>
+    </a>
+
+    <a href="leaderboard.html" class="quick-card">
+        <span class="quick-icon">📊</span>
+        <strong>Leaderboard</strong>
+        <span>See top participants</span>
+    </a>
+
+    <a href="contact.html" class="quick-card">
+        <span class="quick-icon">📞</span>
+        <strong>Contact</strong>
+        <span>Contact QCO</span>
+    </a>
+
+</div>
+
+</section><!-- FOOTER --><footer><p>
+    © 2026 QCO. All Rights Reserved.
+</p>
+
+<p>
+    Quiz Competition Organization
+</p>
+
+</footer><!-- MENU JAVASCRIPT --><script>
+
+function openMenu() {
+
+    document.getElementById("sideMenu").classList.add("active");
+
+    document.getElementById("overlay").classList.add("active");
+
+}
+
+function closeMenu() {
+
+    document.getElementById("sideMenu").classList.remove("active");
+
+    document.getElementById("overlay").classList.remove("active");
+
+}
+
+</script></body>
+    </html>
