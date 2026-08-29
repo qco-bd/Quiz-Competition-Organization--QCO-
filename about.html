@@ -1,92 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About QCO</title>
+    <title>About Us | QCO</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Learn about Quiz Competition Organization (QCO), our mission, vision, activities and leadership.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #071952, #0b3d91);
+            color: white;
+            padding: 18px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ffd43b;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: white;
+            background: rgba(255,255,255,0.12);
+            padding: 9px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #ffd43b;
+            color: #071952;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #071952, #1261a0);
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #ffd43b;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* MAIN */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .section {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .section h2 {
+            color: #0b3d91;
+            font-size: 28px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 4px;
+            background: #ffd43b;
+            margin-top: 7px;
+            border-radius: 5px;
+        }
+
+        .section p {
+            color: #4b5563;
+            font-size: 16px;
+            margin-top: 12px;
+        }
+
+        /* MISSION VISION */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eaf1ff;
+            color: #0b3d91;
+            border-radius: 50%;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #0b3d91;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #596273;
+        }
+
+        /* VALUES */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .value {
+            padding: 22px;
+            background: #f7f9ff;
+            border: 1px solid #e3e9f7;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .value strong {
+            display: block;
+            color: #0b3d91;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .value span {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* FOUNDER */
+        .founder {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .founder-photo {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #071952, #1261a0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 45px;
+            font-weight: bold;
+            margin: auto;
+            border: 6px solid #eef3ff;
+        }
+
+        .founder-info h3 {
+            color: #071952;
+            font-size: 27px;
+            margin-bottom: 4px;
+        }
+
+        .designation {
+            color: #0b3d91;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* HIGHLIGHTS */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #071952, #0b3d91);
+            color: white;
+            padding: 25px 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            font-size: 30px;
+            color: #ffd43b;
+        }
+
+        .highlight p {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #071952, #1261a0);
+            color: white;
+            padding: 50px 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: auto auto 22px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #ffd43b;
+            color: #071952;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #071952;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer .footer-logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        footer .footer-logo span {
+            color: #ffd43b;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .hero {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                width: 92%;
+                margin: 30px auto;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .values {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .founder {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .founder-photo {
+                width: 140px;
+                height: 140px;
+                font-size: 38px;
+            }
+
+            .founder-info h3 {
+                font-size: 24px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            .highlights {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .highlight {
+                padding: 20px 10px;
+            }
+
+            .highlight h3 {
+                font-size: 25px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 
-<bodystyleeader>
+<body>
 
-    <div class="logo">QCO</div>
+    <!-- HEADER -->
+    <header>
+        <div class="nav">
+            <div class="logo">
+                QC<span>O</span>
+            </div>
 
-    <div class="tagline">
-        Quiz Competition Organization
-    </div>
-
-  	<nh href="index.html">Home</>
-        <a href="about.html">About</a>
-        <a href="events.html">Events</a>
-        <a href="registration.html">Registration</a>
-        <a href="results.html">Results</a>
-    </nh]der-top>
-
-</header>
+            <a href="index.html" class="home-btn">
+                ← Home
+            </a>
+        </div>
+    </header>
 
 
-<section class="hero">
-
-    <h1>About QCO</h1>
-
-    <p>
-        Quiz Competition Organization
-    </p>
-
-</section>
-
-
-<section>
-
-    <div class="card">
-
-        <h2>Who We Are</h2>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>About <span>QCO</span></h1>
 
         <p>
-            Quiz Competition Organization (QCO) is an
-            educational organization focused on knowledge,
-            quiz competitions and student development.
+            Quiz Competition Organization (QCO) is an educational
+            organization dedicated to developing knowledge, creativity,
+            critical thinking and competitive skills among students.
         </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>Our Mission</h2>
-
-        <p>
-            Our mission is to encourage students to learn,
-            think critically and participate in healthy
-            academic competitions.
-        </p>
-
-    </div>
+    </section>
 
 
-    <div class="card">
+    <!-- MAIN CONTENT -->
+    <main class="container">
 
-        <h2>Our Vision</h2>
+        <!-- ABOUT -->
+        <section class="section">
+            <h2>Who We Are</h2>
 
-        <p>
-            We aim to create a platform where students can
-            demonstrate their knowledge, develop confidence
-            and compete with talented students.
-        </p>
+            <p>
+                Quiz Competition Organization (QCO) is an educational
+                initiative created to provide students with opportunities
+                to test and improve their knowledge through quizzes,
+                competitions, challenges and educational activities.
+            </p>
 
-    </div>
+            <p>
+                QCO aims to build a strong culture of learning,
+                curiosity and healthy competition among students.
+                Through both online and offline activities, we want to
+                connect talented and enthusiastic learners from different
+                schools, colleges and communities.
+            </p>
 
-</section>
+            <p>
+                Our activities are designed not only to measure knowledge,
+                but also to encourage students to learn beyond textbooks,
+                think critically and develop confidence.
+            </p>
+        </section>
 
 
-<footer>
+        <!-- MISSION & VISION -->
+        <div class="cards">
 
-    <p>© 2026 QCO. All Rights Reserved.</p>
+            <div class="card">
+                <div class="icon">🎯</div>
 
-</footer>
+                <h3>Our Mission</h3>
+
+                <p>
+                    To create meaningful educational competitions that
+                    inspire students to learn more, think better and
+                    confidently demonstrate their knowledge and skills.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <div class="icon">🌍</div>
+
+                <h3>Our Vision</h3>
+
+                <p>
+                    To build a nationwide platform where students can
+                    participate in quality competitions, discover their
+                    potential and connect with other young learners.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- WHAT WE DO -->
+        <section class="section">
+
+            <h2>What We Do</h2>
+
+            <p>
+                QCO organizes educational competitions and knowledge
+                based activities for students. Our activities may include
+                general knowledge quizzes, science competitions,
+                academic challenges and other learning based events.
+            </p>
+
+            <div class="values">
+
+                <div class="value">
+                    <strong>Quiz Competitions</strong>
+                    <span>Knowledge based competitive events</span>
+                </div>
+
+                <div class="value">
+                    <strong>Science Activities</strong>
+                    <span>Encouraging scientific thinking</span>
+                </div>
+
+                <div class="value">
+                    <strong>Student Engagement</strong>
+                    <span>Connecting young learners</span>
+                </div>
+
+                <div class="value">
+                    <strong>Online Events</strong>
+                    <span>Accessible competitions through technology</span>
+                </div>
+
+                <div class="value">
+                    <strong>Offline Events</strong>
+                    <span>Real world educational experiences</span>
+                </div>
+
+                <div class="value">
+                    <strong>Recognition</strong>
+                    <span>Certificates and awards for achievement</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OUR VALUES -->
+        <section class="section">
+
+            <h2>Our Core Values</h2>
+
+            <div class="values">
+
+                <div class="value">
+                    <strong>Knowledge</strong>
+                    <span>We encourage continuous learning.</span>
+                </div>
+
+                <div class="value">
+                    <strong>Integrity</strong>
+                    <span>We value fairness and honesty.</span>
+                </div>
+
+                <div class="value">
+                    <strong>Excellence</strong>
+                    <span>We aim for quality in every activity.</span>
+                </div>
+
+                <div class="value">
+                    <strong>Creativity</strong>
+                    <span>We encourage new ideas and curiosity.</span>
+                </div>
+
+                <div class="value">
+                    <strong>Teamwork</strong>
+                    <span>We believe in learning together.</span>
+                </div>
+
+                <div class="value">
+                    <strong>Opportunity</strong>
+                    <span>We want students to showcase their abilities.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOUNDER -->
+        <section class="section">
+
+            <h2>Founder & Chairman</h2>
+
+            <div class="founder">
+
+                <div class="founder-photo">
+                    IS
+                </div>
+
+                <div class="founder-info">
+
+                    <h3>Imran Sarker</h3>
+
+                    <div class="designation">
+                        Founder & Chairman, QCO
+                    </div>
+
+                    <p>
+                        QCO was founded with the vision of creating a
+                        student focused educational platform where
+                        knowledge, competition and learning can come
+                        together.
+                    </p>
+
+                    <p>
+                        From planning competitions to developing the
+                        organization's digital platform, the journey of
+                        QCO has been driven by dedication, learning and
+                        a commitment to creating meaningful opportunities
+                        for students.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HIGHLIGHTS -->
+        <section class="section">
+
+            <h2>QCO at a Glance</h2>
+
+            <div class="highlights">
+
+                <div class="highlight">
+                    <h3>QCO</h3>
+                    <p>Educational Organization</p>
+                </div>
+
+                <div class="highlight">
+                    <h3>64</h3>
+                    <p>Districts of Bangladesh</p>
+                </div>
+
+                <div class="highlight">
+                    <h3>2+</h3>
+                    <p>Competition Formats</p>
+                </div>
+
+                <div class="highlight">
+                    <h3>2026</h3>
+                    <p>Growing Year</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section class="cta">
+
+            <h2>Be Part of the QCO Journey</h2>
+
+            <p>
+                Learn, compete, discover your potential and grow with
+                a community of passionate young learners.
+            </
+            <a href="registration.html" class="btn">
+                Register Now
+            </a>
+
+        </section>
+
+    </main>
+
+
 
 </body>
-</html>
+    </html>
+    <section class="section">
+
+    <h2>Founder & Chairman</h2>
+
+    <div class="founder">
+
+        <div class="founder-photo">
+            IS
+        </div>
+
+        <div class="founder-info">
+
+            <h3>Md Imran Sarker</h3>
+
+            <div class="designation">
+                Founder & Chairman
+            </div>
+
+            <p>
+                QCO was founded with the vision of creating a
+                student-focused educational platform where knowledge,
+                competition and learning can come together.
+            </p>
+
+            <p>
+                <strong>প্রতিষ্ঠার তারিখ:</strong> ১৬ জুলাই, ২০২৫
+            </p>
+
+        </div>
+
+    </div>
+
+    </section>
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            QC<span>O</span>
+        </div>
+
+        <p>
+            Quiz Competition Organization
+        </p>
+
+        <p>
+            Inspiring Knowledge • Encouraging Excellence
+        </p>
+
+        <p>
+            © 2026 QCO. All Rights Reserved.
+        </p>
+
+    </footer>
