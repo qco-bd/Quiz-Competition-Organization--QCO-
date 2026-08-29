@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>About Us | QCO</title>
 
-    <meta name="description" content="Learn about Quiz Competition Organization (QCO), our mission, vision, activities and leadership.">
+    <meta name="description" content="Learn about Quiz Competition Organization (QCO), our mission, vision, activities, founder and journey.">
 
     <style>
         * {
@@ -30,7 +30,7 @@
         header {
             background: linear-gradient(135deg, #071952, #0b3d91);
             color: white;
-            padding: 18px 6%;
+            padding: 17px 6%;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -70,16 +70,17 @@
             color: #071952;
         }
 
+
         /* HERO */
         .hero {
             background: linear-gradient(135deg, #071952, #1261a0);
             color: white;
             text-align: center;
-            padding: 75px 20px;
+            padding: 80px 20px;
         }
 
         .hero h1 {
-            font-size: 45px;
+            font-size: 46px;
             margin-bottom: 12px;
         }
 
@@ -88,11 +89,12 @@
         }
 
         .hero p {
-            max-width: 750px;
+            max-width: 760px;
             margin: auto;
             font-size: 18px;
             opacity: 0.95;
         }
+
 
         /* MAIN */
         .container {
@@ -101,9 +103,11 @@
             margin: 50px auto;
         }
 
+
+        /* SECTION */
         .section {
             background: white;
-            padding: 35px;
+            padding: 36px;
             border-radius: 18px;
             margin-bottom: 30px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.07);
@@ -112,7 +116,7 @@
         .section h2 {
             color: #0b3d91;
             font-size: 28px;
-            margin-bottom: 15px;
+            margin-bottom: 17px;
             position: relative;
         }
 
@@ -132,7 +136,8 @@
             margin-top: 12px;
         }
 
-        /* MISSION VISION */
+
+        /* MISSION & VISION */
         .cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -175,6 +180,7 @@
             color: #596273;
         }
 
+
         /* VALUES */
         .values {
             display: grid;
@@ -189,6 +195,12 @@
             border: 1px solid #e3e9f7;
             border-radius: 14px;
             text-align: center;
+            transition: 0.3s;
+        }
+
+        .value:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 7px 18px rgba(0,0,0,0.06);
         }
 
         .value strong {
@@ -203,40 +215,70 @@
             font-size: 14px;
         }
 
+
         /* FOUNDER */
-        .founder {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .founder-photo {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #071952, #1261a0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 45px;
-            font-weight: bold;
-            margin: auto;
-            border: 6px solid #eef3ff;
-        }
-
         .founder-info h3 {
             color: #071952;
-            font-size: 27px;
-            margin-bottom: 4px;
+            font-size: 30px;
+            margin-bottom: 5px;
         }
 
         .designation {
             color: #0b3d91;
             font-weight: bold;
-            margin-bottom: 12px;
+            font-size: 17px;
+            margin-bottom: 10px;
         }
+
+        .founder-date {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 16px;
+            background: #f2f6ff;
+            border-left: 4px solid #ffd43b;
+            border-radius: 7px;
+            color: #172033;
+            font-size: 15px;
+        }
+
+        .founder-date strong {
+            color: #0b3d91;
+        }
+
+
+        /* TIMELINE */
+        .timeline {
+            margin-top: 25px;
+            border-left: 3px solid #0b3d91;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            background: #ffd43b;
+            border: 3px solid #0b3d91;
+            border-radius: 50%;
+            left: -34px;
+            top: 7px;
+        }
+
+        .timeline-item h3 {
+            color: #0b3d91;
+            margin-bottom: 3px;
+        }
+
+        .timeline-item p {
+            margin-top: 0;
+        }
+
 
         /* HIGHLIGHTS */
         .highlights {
@@ -257,6 +299,7 @@
         .highlight h3 {
             font-size: 30px;
             color: #ffd43b;
+            margin-bottom: 3px;
         }
 
         .highlight p {
@@ -264,6 +307,7 @@
             font-size: 14px;
             margin: 0;
         }
+
 
         /* CTA */
         .cta {
@@ -276,11 +320,17 @@
         }
 
         .cta h2 {
+            color: white;
             font-size: 30px;
             margin-bottom: 10px;
         }
 
+        .cta h2::after {
+            display: none;
+        }
+
         .cta p {
+            color: white;
             max-width: 650px;
             margin: auto auto 22px;
             opacity: 0.9;
@@ -301,21 +351,22 @@
             background: white;
         }
 
+
         /* FOOTER */
         footer {
             background: #071952;
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 32px 20px;
         }
 
-        footer .footer-logo {
+        .footer-logo {
             font-size: 25px;
             font-weight: bold;
             margin-bottom: 8px;
         }
 
-        footer .footer-logo span {
+        .footer-logo span {
             color: #ffd43b;
         }
 
@@ -325,15 +376,16 @@
             margin: 5px 0;
         }
 
+
         /* MOBILE */
         @media (max-width: 768px) {
 
             .hero {
-                padding: 55px 20px;
+                padding: 60px 20px;
             }
 
             .hero h1 {
-                font-size: 34px;
+                font-size: 35px;
             }
 
             .hero p {
@@ -361,19 +413,12 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .founder {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .founder-photo {
-                width: 140px;
-                height: 140px;
-                font-size: 38px;
+            .founder-info {
+                text-align: left;
             }
 
             .founder-info h3 {
-                font-size: 24px;
+                font-size: 26px;
             }
 
             .logo {
@@ -381,7 +426,16 @@
             }
         }
 
+
         @media (max-width: 420px) {
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
 
             .highlights {
                 grid-template-columns: 1fr 1fr;
@@ -395,18 +449,23 @@
                 font-size: 25px;
             }
 
-            .section h2 {
-                font-size: 24px;
+            .founder-date {
+                font-size: 14px;
             }
         }
     </style>
 </head>
 
+
 <body>
 
+
     <!-- HEADER -->
+
     <header>
+
         <div class="nav">
+
             <div class="logo">
                 QC<span>O</span>
             </div>
@@ -414,42 +473,57 @@
             <a href="index.html" class="home-btn">
                 ← Home
             </a>
+
         </div>
+
     </header>
 
 
+
     <!-- HERO -->
+
     <section class="hero">
-        <h1>About <span>QCO</span></h1>
+
+        <h1>
+            About <span>QCO</span>
+        </h1>
 
         <p>
             Quiz Competition Organization (QCO) is an educational
             organization dedicated to developing knowledge, creativity,
             critical thinking and competitive skills among students.
         </p>
+
     </section>
 
 
-    <!-- MAIN CONTENT -->
+
+    <!-- MAIN -->
+
     <main class="container">
 
-        <!-- ABOUT -->
+
+        <!-- WHO WE ARE -->
+
         <section class="section">
-            <h2>Who We Are</h2>
+
+            <h2>
+                Who We Are
+            </h2>
 
             <p>
                 Quiz Competition Organization (QCO) is an educational
-                initiative created to provide students with opportunities
+                organization created to provide students with opportunities
                 to test and improve their knowledge through quizzes,
                 competitions, challenges and educational activities.
             </p>
 
             <p>
-                QCO aims to build a strong culture of learning,
-                curiosity and healthy competition among students.
-                Through both online and offline activities, we want to
-                connect talented and enthusiastic learners from different
-                schools, colleges and communities.
+                QCO aims to build a strong culture of learning, curiosity
+                and healthy competition among students. Through both online
+                and offline activities, QCO seeks to connect talented and
+                enthusiastic learners from different schools, colleges and
+                communities.
             </p>
 
             <p>
@@ -457,164 +531,298 @@
                 but also to encourage students to learn beyond textbooks,
                 think critically and develop confidence.
             </p>
+
         </section>
 
 
+
         <!-- MISSION & VISION -->
+
         <div class="cards">
 
-            <div class="card">
-                <div class="icon">🎯</div>
 
-                <h3>Our Mission</h3>
+            <div class="card">
+
+                <div class="icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Our Mission
+                </h3>
 
                 <p>
                     To create meaningful educational competitions that
                     inspire students to learn more, think better and
                     confidently demonstrate their knowledge and skills.
                 </p>
+
             </div>
 
 
-            <div class="card">
-                <div class="icon">🌍</div>
 
-                <h3>Our Vision</h3>
+            <div class="card">
+
+                <div class="icon">
+                    🌍
+                </div>
+
+                <h3>
+                    Our Vision
+                </h3>
 
                 <p>
                     To build a nationwide platform where students can
                     participate in quality competitions, discover their
                     potential and connect with other young learners.
                 </p>
+
             </div>
 
         </div>
 
 
+
         <!-- WHAT WE DO -->
+
         <section class="section">
 
-            <h2>What We Do</h2>
+            <h2>
+                What We Do
+            </h2>
 
             <p>
-                QCO organizes educational competitions and knowledge
-                based activities for students. Our activities may include
-                general knowledge quizzes, science competitions,
-                academic challenges and other learning based events.
+                QCO organizes educational competitions and knowledge based
+                activities for students. Our activities may include general
+                knowledge quizzes, science competitions, academic challenges
+                and other learning based events.
             </p>
 
+
             <div class="values">
 
-                <div class="value">
-                    <strong>Quiz Competitions</strong>
-                    <span>Knowledge based competitive events</span>
-                </div>
 
                 <div class="value">
-                    <strong>Science Activities</strong>
-                    <span>Encouraging scientific thinking</span>
+
+                    <strong>
+                        Quiz Competitions
+                    </strong>
+
+                    <span>
+                        Knowledge based competitive events
+                    </span>
+
                 </div>
 
-                <div class="value">
-                    <strong>Student Engagement</strong>
-                    <span>Connecting young learners</span>
-                </div>
 
                 <div class="value">
-                    <strong>Online Events</strong>
-                    <span>Accessible competitions through technology</span>
+
+                    <strong>
+                        Science Activities
+                    </strong>
+
+                    <span>
+                        Encouraging scientific thinking
+                    </span>
+
                 </div>
 
-                <div class="value">
-                    <strong>Offline Events</strong>
-                    <span>Real world educational experiences</span>
-                </div>
 
                 <div class="value">
-                    <strong>Recognition</strong>
-                    <span>Certificates and awards for achievement</span>
+
+                    <strong>
+                        Student Engagement
+                    </strong>
+
+                    <span>
+                        Connecting young learners
+                    </span>
+
                 </div>
+
+
+                <div class="value">
+
+                    <strong>
+                        Online Events
+                    </strong>
+
+                    <span>
+                        Accessible competitions through technology
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <strong>
+                        Offline Events
+                    </strong>
+
+                    <span>
+                        Real world educational experiences
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <strong>
+                        Recognition
+                    </strong>
+
+                    <span>
+                        Certificates and awards for achievement
+                    </span>
+
+                </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- OUR VALUES -->
+
+        <!-- CORE VALUES -->
+
         <section class="section">
 
-            <h2>Our Core Values</h2>
+            <h2>
+                Our Core Values
+            </h2>
+
 
             <div class="values">
 
-                <div class="value">
-                    <strong>Knowledge</strong>
-                    <span>We encourage continuous learning.</span>
-                </div>
 
                 <div class="value">
-                    <strong>Integrity</strong>
-                    <span>We value fairness and honesty.</span>
+
+                    <strong>
+                        Knowledge
+                    </strong>
+
+                    <span>
+                        We encourage continuous learning.
+                    </span>
+
                 </div>
 
-                <div class="value">
-                    <strong>Excellence</strong>
-                    <span>We aim for quality in every activity.</span>
-                </div>
 
                 <div class="value">
-                    <strong>Creativity</strong>
-                    <span>We encourage new ideas and curiosity.</span>
+
+                    <strong>
+                        Integrity
+                    </strong>
+
+                    <span>
+                        We value fairness and honesty.
+                    </span>
+
                 </div>
 
-                <div class="value">
-                    <strong>Teamwork</strong>
-                    <span>We believe in learning together.</span>
-                </div>
 
                 <div class="value">
-                    <strong>Opportunity</strong>
-                    <span>We want students to showcase their abilities.</span>
+
+                    <strong>
+                        Excellence
+                    </strong>
+
+                    <span>
+                        We aim for quality in every activity.
+                    </span>
+
                 </div>
+
+
+                <div class="value">
+
+                    <strong>
+                        Creativity
+                    </strong>
+
+                    <span>
+                        We encourage new ideas and curiosity.
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <strong>
+                        Teamwork
+                    </strong>
+
+                    <span>
+                        We believe in learning together.
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <strong>
+                        Opportunity
+                    </strong>
+
+                    <span>
+                        We want students to showcase their abilities.
+                    </span>
+
+                </div>
+
 
             </div>
 
         </section>
+
 
 
         <!-- FOUNDER -->
+
         <section class="section">
 
-            <h2>Founder & Chairman</h2>
+            <h2>
+                Founder & Chairman
+            </h2>
 
-            <div class="founder">
 
-                <div class="founder-photo">
-                    IS
+            <div class="founder-info">
+
+                <div class="designation">
+                    Founder & Chairman
                 </div>
 
-                <div class="founder-info">
+                <h3>
+                    Md Imran Sarker
+                </h3>
 
-                    <h3>Imran Sarker</h3>
+                <p>
+                    QCO was founded with the vision of creating a
+                    student focused educational platform where
+                    knowledge, competition and learning can come
+                    together.
+                </p>
 
-                    <div class="designation">
-                        Founder & Chairman, QCO
-                    </div>
+                <p>
+                    From planning competitions to developing the
+                    organization's digital platform, the journey of
+                    QCO has been driven by dedication, learning and
+                    a commitment to creating meaningful opportunities
+                    for students.
+                </p>
 
-                    <p>
-                        QCO was founded with the vision of creating a
-                        student focused educational platform where
-                        knowledge, competition and learning can come
-                        together.
-                    </p>
+                <div class="founder-date">
 
-                    <p>
-                        From planning competitions to developing the
-                        organization's digital platform, the journey of
-                        QCO has been driven by dedication, learning and
-                        a commitment to creating meaningful opportunities
-                        for students.
-                    </p>
+                    <strong>
+                        প্রতিষ্ঠার তারিখ:
+                    </strong>
+
+                    ১৬ জুলাই, ২০২৫
 
                 </div>
 
@@ -623,93 +831,178 @@
         </section>
 
 
-        <!-- HIGHLIGHTS -->
+
+        <!-- JOURNEY -->
+
         <section class="section">
 
-            <h2>QCO at a Glance</h2>
+            <h2>
+                Our Journey
+            </h2>
+
+            <div class="timeline">
+
+
+                <div class="timeline-item">
+
+                    <h3>
+                        ১৬ জুলাই, ২০২৫
+                    </h3>
+
+                    <p>
+                        QCO was established with the goal of creating
+                        a student focused educational competition platform.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h3>
+                        Building the Community
+                    </h3>
+
+                    <p>
+                        QCO continued developing its community through
+                        educational activities, competitions and student
+                        engagement.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h3>
+                        Expanding Competitions
+                    </h3>
+
+                    <p>
+                        QCO began working toward online and offline
+                        competitions to provide students with wider
+                        opportunities.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h3>
+                        Looking Ahead
+                    </h3>
+
+                    <p>
+                        QCO aims to continue growing as a platform for
+                        knowledge, learning and healthy competition.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QCO AT A GLANCE -->
+
+        <section class="section">
+
+            <h2>
+                QCO at a Glance
+            </h2>
+
 
             <div class="highlights">
 
-                <div class="highlight">
-                    <h3>QCO</h3>
-                    <p>Educational Organization</p>
-                </div>
 
                 <div class="highlight">
-                    <h3>64</h3>
-                    <p>Districts of Bangladesh</p>
+
+                    <h3>
+                        QCO
+                    </h3>
+
+                    <p>
+                        Educational Organization
+                    </p>
+
                 </div>
 
-                <div class="highlight">
-                    <h3>2+</h3>
-                    <p>Competition Formats</p>
-                </div>
 
                 <div class="highlight">
-                    <h3>2026</h3>
-                    <p>Growing Year</p>
+
+                    <h3>
+                        64
+                    </h3>
+
+                    <p>
+                        Districts of Bangladesh
+                    </p>
+
                 </div>
+
+
+                <div class="highlight">
+
+                    <h3>
+                        2+
+                    </h3>
+
+                    <p>
+                        Competition Formats
+                    </p>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <h3>
+                        2025
+                    </h3>
+
+                    <p>
+                        Founded
+                    </p>
+
+                </div>
+
 
             </div>
 
         </section>
 
 
+
         <!-- CTA -->
+
         <section class="cta">
 
-            <h2>Be Part of the QCO Journey</h2>
+            <h2>
+                Be Part of the QCO Journey
+            </h2>
 
             <p>
                 Learn, compete, discover your potential and grow with
                 a community of passionate young learners.
-            </
+            </p>
+
             <a href="registration.html" class="btn">
                 Register Now
             </a>
 
         </section>
 
+
     </main>
 
 
 
-</body>
-    </html>
-    <section class="section">
-
-    <h2>Founder & Chairman</h2>
-
-    <div class="founder">
-
-        <div class="founder-photo">
-            IS
-        </div>
-
-        <div class="founder-info">
-
-            <h3>Md Imran Sarker</h3>
-
-            <div class="designation">
-                Founder & Chairman
-            </div>
-
-            <p>
-                QCO was founded with the vision of creating a
-                student-focused educational platform where knowledge,
-                competition and learning can come together.
-            </p>
-
-            <p>
-                <strong>প্রতিষ্ঠার তারিখ:</strong> ১৬ জুলাই, ২০২৫
-            </p>
-
-        </div>
-
-    </div>
-
-    </section>
     <!-- FOOTER -->
+
     <footer>
 
         <div class="footer-logo">
@@ -729,3 +1022,7 @@
         </p>
 
     </footer>
+
+
+</body>
+    </html>
