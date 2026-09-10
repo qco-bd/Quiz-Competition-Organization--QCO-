@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Certificate Verification | QCO</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f3f7fc;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      background: #0757b8;
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* MAIN */
+
+    .container {
+      width: 92%;
+      max-width: 650px;
+      margin: 55px auto;
+    }
+
+    .verification-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .icon {
+      width: 70px;
+      height: 70px;
+      margin: auto;
+      border-radius: 50%;
+      background: #e7f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+    }
+
+    h1 {
+      margin-top: 18px;
+      color: #0757b8;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #666;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .search-area {
+      margin-top: 28px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccd6e2;
+      border-radius: 9px;
+      outline: none;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    input:focus {
+      border-color: #0757b8;
+    }
+
+    .verify-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      background: #0757b8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .verify-btn:hover {
+      background: #06458f;
+    }
+
+    /* RESULT */
+
+    #result {
+      margin-top: 25px;
+      display: none;
+    }
+
+    .verified {
+      border: 2px solid #198754;
+      border-radius: 13px;
+      padding: 22px;
+      text-align: left;
+      background: #f5fff8;
+    }
+
+    .verified-title {
+      text-align: center;
+      color: #198754;
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .not-found {
+      border: 2px solid #dc3545;
+      border-radius: 13px;
+      padding: 20px;
+      background: #fff7f7;
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .detail {
+      padding: 9px 0;
+      border-bottom: 1px solid #e4e8ec;
+      font-size: 14px;
+    }
+
+    .detail:last-child {
+      border-bottom: none;
+    }
+
+    .detail span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: #198754;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .certificate-link {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      padding: 11px;
+      background: #0757b8;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+
+      .menu {
+        display: none;
+      }
+
+      .container {
+        margin-top: 30px;
+      }
+
+      .verification-card {
+        padding: 28px 18px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      QCO
+    </div>
+
+    <ul class="menu">
+
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+
+      <li>
+        <a href="about.html">About</a>
+      </li>
+
+      <li>
+        <a href="events.html">Events</a>
+      </li>
+
+      <li>
+        <a href="registration.html">Registration</a>
+      </li>
+
+      <li>
+        <a href="results.html">Results</a>
+      </li>
+
+      <li>
+        <a href="leaderboard.html">Leaderboard</a>
+      </li>
+
+      <li>
+        <a href="certificate-verification.html">
+          Certificate Verification
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+  <!-- MAIN -->
+
+  <main class="container">
+
+    <section class="verification-card">
+
+      <div class="icon">
+        ✓
+      </div>
+
+      <h1>
+        Certificate Verification
+      </h1>
+
+      <p class="subtitle">
+        Verify the authenticity of a certificate
+        issued by Quiz Competition Organization (QCO).
+      </p>
+
+
+      <div class="search-area">
+
+        <input
+          type="text"
+          id="certificateId"
+          placeholder="Enter Certificate ID"
+          autocomplete="off"
+        >
+
+        <button
+          class="verify-btn"
+          onclick="verifyCertificate()"
+        >
+          🔍 Verify Certificate
+        </button>
+
+      </div>
+
+
+      <div id="result"></div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 Quiz Competition Organization (QCO)
+  </footer>
+
+
+  <script>
+
+    function verifyCertificate() {
+
+      const input =
+        document
+          .getElementById("certificateId")
+          .value
+          .trim();
+
+      const result =
+        document.getElementById("result");
+
+
+      if (!input) {
+
+        result.style.display = "block";
+
+        result.innerHTML = `
+          <div class="not-found">
+            Please enter a Certificate ID.
+          </div>
+        `;
+
+        return;
+      }
+
+
+      const certificates =
+        JSON.parse(
+          localStorage.getItem("qcoCertificates") || "[]"
+        );
+
+
+      const certificate =
+        certificates.find(
+          cert =>
+            cert.id.toLowerCase() ===
+            input.toLowerCase()
+        );
+
+
+      result.style.display = "block";
+
+
+      if (!certificate) {
+
+        result.innerHTML = `
+
+          <div class="not-found">
+
+            ✕ Certificate Not Found
+
+            <p style="
+              margin-top:8px;
+              font-size:13px;
+              font-weight:normal;
+            ">
+              Please check the Certificate ID
+              and try again.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      if (
+        certificate.status.toLowerCase() ===
+        "revoked"
+      ) {
+
+        result.innerHTML = `
+
+          <div class="not-found"
+               style="
+                 border-color:#dc3545;
+                 color:#dc3545;
+               ">
+
+            ✕ Certificate Revoked
+
+            <p style="
+              margin-top:8px;
+              font-size:13px;
+              font-weight:normal;
+            ">
+              This certificate is no longer valid.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      result.innerHTML = `
+
+        <div class="verified">
+
+          <div class="verified-title">
+            ✓ Certificate Verified
+          </div>
+
+
+          <div class="detail">
+            <span>Certificate ID:</span>
+            ${escapeHTML(certificate.id)}
+          </div>
+
+
+          <div class="detail">
+            <span>Participant Name:</span>
+            ${escapeHTML(certificate.name)}
+          </div>
+
+
+          <div class="detail">
+            <span>Event:</span>
+            ${escapeHTML(certificate.event)}
+          </div>
+
+
+          <div class="detail">
+            <span>Achievement:</span>
+            ${escapeHTML(certificate.achievement)}
+          </div>
+
+
+          <div class="detail">
+            <span>Class:</span>
+            ${escapeHTML(
+              certificate.className || "N/A"
+            )}
+          </div>
+
+
+          <div class="detail">
+            <span>Institution:</span>
+            ${escapeHTML(
+              certificate.institution || "N/A"
+            )}
+          </div>
+
+
+          <div class="detail">
+            <span>Issue Date:</span>
+            ${escapeHTML(certificate.issueDate)}
+          </div>
+
+
+          <div class="detail">
+            <span>Status:</span>
+            <span class="status">
+              ${escapeHTML(certificate.status)}
+            </span>
+          </div>
+
+
+          ${
+            certificate.certificateUrl
+            ?
+            `
+              <a
+                class="certificate-link"
+                href="${escapeAttribute(certificate.certificateUrl)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Certificate
+              </a>
+            `
+            :
+            ""
+          }
+
+        </div>
+
+      `;
+
+    }
+
+
+    function escapeHTML(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    function escapeAttribute(value) {
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+    }
+
+
+    // Press Enter to verify
+    document
+      .getElementById("certificateId")
+      .addEventListener(
+        "keydown",
+        function(event) {
+
+          if (event.key === "Enter") {
+            verifyCertificate();
+          }
+
+        }
+      );
+
+  </script>
+
+</body>
+          </html>
