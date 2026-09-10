@@ -1,668 +1,935 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>QCO | Quiz Competition Organization</title><style>
-
-/* =========================
-   QCO MAIN STYLE
-   ========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fc;
-    color: #14213d;
-}
-
-/* HEADER */
-
-.site-header {
-    width: 100%;
-    background: #071a3d;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.18);
-}
-
-.header-top {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: 900;
-    color: #f4b400;
-    letter-spacing: 2px;
-}
-
-.tagline {
-    font-size: 14px;
-    color: #ffffff;
-}
-
-/* MENU BUTTON */
-
-.menu-btn {
-    width: 46px;
-    height: 46px;
-    border: none;
-    border-radius: 8px;
-    background: #f4b400;
-    color: #071a3d;
-    font-size: 27px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.menu-btn:hover {
-    background: #ffd75a;
-}
-
-/* SIDE MENU */
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: -330px;
-    width: 310px;
-    height: 100vh;
-    background: white;
-    z-index: 2000;
-    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
-    transition: right 0.3s ease;
-    overflow-y: auto;
-}
-
-.side-menu.active {
-    right: 0;
-}
-
-.menu-header {
-    height: 75px;
-    padding: 0 20px;
-    background: #071a3d;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.menu-title {
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.close-btn {
-    border: none;
-    background: transparent;
-    color: white;
-    font-size: 35px;
-    cursor: pointer;
-}
-
-.menu-content {
-    padding: 15px 0;
-}
-
-.menu-content a {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 16px 22px;
-    color: #14213d;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    border-bottom: 1px solid #e6eaf0;
-    transition: 0.2s;
-}
-
-.menu-content a:hover {
-    background: #eef4ff;
-    color: #0b3d91;
-    padding-left: 28px;
-}
-
-.menu-content a span:first-child {
-    width: 25px;
-    text-align: center;
-}
-
-/* OVERLAY */
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 1500;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-}
-
-.overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 580px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 80px 20px;
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #071a3d,
-            #0b3d91
-        );
-}
-
-.hero-content {
-    max-width: 850px;
-    margin: auto;
-}
-
-.welcome {
-    color: #f4b400;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: 52px;
-    line-height: 1.15;
-    font-weight: 900;
-    margin-bottom: 20px;
-}
-
-.hero-content > p:not(.welcome) {
-    color: #e2eaf7;
-    font-size: 18px;
-    max-width: 650px;
-    margin: auto;
-}
-
-/* BUTTONS */
-
-.hero-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 25px;
-    border-radius: 8px;
-    background: #f4b400;
-    color: #111827;
-    text-decoration: none;
-    font-weight: 800;
-    border: 2px solid #f4b400;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #ffd75a;
-    border-color: #ffd75a;
-    transform: translateY(-2px);
-}
-
-.btn.secondary {
-    background: transparent;
-    color: white;
-    border-color: white;
-}
-
-.btn.secondary:hover {
-    background: white;
-    color: #071a3d;
-}
-
-/* STATS */
-
-.stats {
-    max-width: 1100px;
-    margin: -45px auto 0;
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.stat-card {
-    background: white;
-    padding: 28px 20px;
-    text-align: center;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(7,26,61,0.12);
-}
-
-.stat-card h2 {
-    color: #0b3d91;
-    font-size: 30px;
-    margin-bottom: 5px;
-}
-
-.stat-card p {
-    color: #667085;
-}
-
-/* SECTIONS */
-
-.section {
-    max-width: 1100px;
-    margin: auto;
-    padding: 70px 20px 20px;
-}
-
-.section > h2 {
-    text-align: center;
-    font-size: 32px;
-    color: #071a3d;
-    margin-bottom: 30px;
-}
-
-/* CARD */
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid #e1e6ef;
-    box-shadow: 0 7px 25px rgba(7,26,61,0.07);
-}
-
-.card h3,
-.card h2 {
-    color: #0b3d91;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #667085;
-    margin-bottom: 15px;
-}
-
-/* QUICK LINKS */
-
-.quick-links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.quick-card {
-    background: white;
-    padding: 25px 18px;
-    border-radius: 14px;
-    text-decoration: none;
-    color: #14213d;
-    border: 1px solid #e1e6ef;
-    box-shadow: 0 6px 20px rgba(7,26,61,0.06);
-    transition: 0.3s;
-
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.quick-card:hover {
-    transform: translateY(-5px);
-    border-color: #0b3d91;
-}
-
-.quick-icon {
-    font-size: 30px;
-}
-
-.quick-card strong {
-    font-size: 18px;
-    color: #0b3d91;
-}
-
-.quick-card span:last-child {
-    color: #667085;
-    font-size: 14px;
-}
-
-/* FOOTER */
-
-footer {
-    margin-top: 70px;
-    padding: 35px 20px;
-    text-align: center;
-    background: #04132d;
-    color: white;
-}
-
-footer p {
-    margin: 5px;
-    color: #c8d2e2;
-}
-
-/* MOBILE */
-
-@media (max-width: 800px) {
-
-    .hero h1 {
-        font-size: 40px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>QCO | Quiz Competition Organization</title>
+
+  <meta
+    name="description"
+    content="Quiz Competition Organization (QCO) is a student-run quiz and knowledge community."
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .stats {
-        grid-template-columns: 1fr;
-        margin-top: -25px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .quick-links {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-
-    .header-top {
-        padding: 12px 15px;
+    body {
+      background: #f5f8fc;
+      color: #172033;
+      line-height: 1.6;
     }
 
-    .tagline {
-        font-size: 11px;
+
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+      width: 100%;
+      background: #0757b8;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 68px;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-        font-size: 24px;
+      color: white;
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
+    .logo span {
+      font-size: 12px;
+      display: block;
+      font-weight: normal;
+      letter-spacing: 1.5px;
+      opacity: 0.9;
+    }
+
+
+    /* DESKTOP MENU */
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 5px;
+    }
+
+    .nav-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 7px;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .verify-menu {
+      background: rgba(255,255,255,0.15);
+      font-weight: bold;
+    }
+
+
+    /* HAMBURGER */
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+
+    /* ================= HERO ================= */
+
     .hero {
-        min-height: 520px;
-        padding: 65px 18px;
+      min-height: 570px;
+      padding: 90px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0757b8,
+          #063b80
+        );
+
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 13px;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-        font-size: 34px;
+      font-size: clamp(42px, 8vw, 78px);
+      font-weight: 900;
+      letter-spacing: 2px;
+      line-height: 1.05;
     }
 
-    .hero-content > p:not(.welcome) {
-        font-size: 16px;
+    .hero h2 {
+      margin-top: 18px;
+      font-size: clamp(20px, 4vw, 31px);
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 20px auto 0;
+      font-size: 16px;
+      opacity: 0.92;
     }
 
     .hero-buttons {
+      margin-top: 32px;
+
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0757b8;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.6);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+
+    /* ================= ABOUT ================= */
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: #0757b8;
+    }
+
+    .section-title p {
+      color: #687386;
+      margin-top: 8px;
+    }
+
+    .about-card {
+      background: white;
+      padding: 35px;
+      border-radius: 17px;
+      box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+    }
+
+    .about-card p {
+      color: #4d596b;
+      margin-bottom: 15px;
+    }
+
+
+    /* ================= FEATURES ================= */
+
+    .features {
+      display: grid;
+      grid-template-columns:
+        repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 28px 22px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+    }
+
+    .feature-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      color: #0757b8;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #687386;
+      font-size: 14px;
+    }
+
+
+    /* ================= CERTIFICATE ================= */
+
+    .certificate-section {
+      background: white;
+    }
+
+    .certificate-box {
+      max-width: 800px;
+      margin: auto;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0757b8,
+          #063b80
+        );
+
+      color: white;
+      padding: 45px 25px;
+      border-radius: 20px;
+      text-align: center;
+
+      box-shadow: 0 10px 35px rgba(7,87,184,0.2);
+    }
+
+    .certificate-box h2 {
+      font-size: 31px;
+    }
+
+    .certificate-box p {
+      margin: 12px auto 25px;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    .certificate-btn {
+      display: inline-block;
+      background: white;
+      color: #0757b8;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+    /* ================= EVENTS ================= */
+
+    .event-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+      margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+      color: #0757b8;
+      margin-bottom: 8px;
+    }
+
+    .event-card p {
+      color: #687386;
+      font-size: 14px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #071a32;
+      color: white;
+      padding: 45px 20px 25px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns:
+        2fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: #b9c4d2;
+      font-size: 14px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: #b9c4d2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1100px;
+      margin: 35px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+
+      text-align: center;
+      color: #9daabd;
+      font-size: 13px;
+    }
+
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+
+        background: #0757b8;
+
+        display: none;
         flex-direction: column;
         align-items: stretch;
-    }
 
-    .hero-buttons .btn {
-        text-align: center;
-    }
+        padding: 10px 15px 15px;
 
-    .quick-links {
+        box-shadow:
+          0 8px 15px rgba(0,0,0,0.15);
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu a {
+        padding: 13px;
+      }
+
+      .features {
         grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
     }
 
-    .side-menu {
-        width: 290px;
-    }
-}
+  </style>
+</head>
 
-</style></head><body><!-- HEADER --><header class="site-header"><div class="header-top">
 
-    <div class="brand">
-        <div class="logo">QCO</div>
+<body>
 
-        <div class="tagline">
-            Quiz Competition Organization
-        </div>
-    </div>
 
-    <button class="menu-btn" onclick="openMenu()" aria-label="Open Menu">
+  <!-- ================= NAVBAR ================= -->
+
+  <nav class="navbar">
+
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">
+        QCO
+        <span>Quiz Competition Organization</span>
+      </a>
+
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open Menu"
+      >
         ☰
-    </button>
+      </button>
 
-</div>
 
-</header><!-- OVERLAY --><div id="overlay" class="overlay" onclick="closeMenu()"></div><!-- SIDE MENU --><aside id="sideMenu" class="side-menu"><div class="menu-header">
+      <ul class="nav-menu" id="navMenu">
 
-    <div class="menu-title">
-        QCO MENU
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="events.html">
+            Events
+          </a>
+        </li>
+
+        <li>
+          <a href="registration.html">
+            Registration
+          </a>
+        </li>
+
+        <li>
+          <a href="results.html">
+            Results
+          </a>
+        </li>
+
+        <li>
+          <a href="leaderboard.html">
+            Leaderboard
+          </a>
+        </li>
+
+        <!-- NEW -->
+
+        <li>
+          <a
+            href="certificate-verification.html"
+            class="verify-menu"
+          >
+            Certificate Verification
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
     </div>
 
-    <button class="close-btn" onclick="closeMenu()" aria-label="Close Menu">
-        ×
-    </button>
+  </nav>
 
-</div>
 
-<div class="menu-content">
 
-    <a href="index.html" onclick="closeMenu()">
-        <span>🏠</span>
-        <span>Home</span>
-    </a>
+  <!-- ================= HERO ================= -->
 
-    <a href="about.html">
-        <span>ℹ️</span>
-        <span>About</span>
-    </a>
+  <section class="hero">
 
-    <a href="events.html">
-        <span>🏆</span>
-        <span>Events</span>
-    </a>
+    <div class="hero-content">
 
-    <a href="registration.html">
-        <span>📝</span>
-        <span>Registration</span>
-    </a>
+      <div class="hero-badge">
+        Knowledge • Competition • Excellence
+      </div>
 
-    <a href="results.html">
-        <span>📊</span>
-        <span>Results</span>
-    </a>
+      <h1>
+        QCO
+      </h1>
 
-    <a href="leaderboard.html">
-        <span>🥇</span>
-        <span>Leaderboard</span>
-    </a>
+      <h2>
+        Quiz Competition Organization
+      </h2>
 
-    <a href="prizes.html">
-        <span>🎁</span>
-        <span>Prizes</span>
-    </a>
+      <p>
+        A student-run quiz and knowledge community
+        dedicated to developing knowledge, confidence,
+        leadership and competitive spirit.
+      </p>
 
-    <a href="contact.html">
-        <span>📞</span>
-        <span>Contact</span>
-    </a>
 
-</div>
-
-</aside><!-- HERO --><section class="hero"><div class="hero-content">
-
-    <p class="welcome">
-        WELCOME TO QCO
-    </p>
-
-    <h1>
-        QCO National GK
-        Championship 2026
-    </h1>
-
-    <p>
-        Test your knowledge, challenge yourself
-        and become a champion.
-    </p>
-
-    <div class="hero-buttons">
+      <div class="hero-buttons">
 
         <a
-            href="https://form.svhrt.com/6a8e5863a00a75349c68c608"
-            class="btn"
-            target="_blank">
-            Register Now
+          href="events.html"
+          class="btn btn-primary"
+        >
+          Explore Events
         </a>
 
-        <a href="events.html" class="btn secondary">
-            Explore Events
+        <a
+          href="certificate-verification.html"
+          class="btn btn-outline"
+        >
+          Verify Certificate
         </a>
+
+      </div>
 
     </div>
 
-</div>
+  </section>
 
-</section><!-- STATS --><section class="stats"><div class="stat-card">
-    <h2>2026</h2>
-    <p>Championship Year</p>
-</div>
 
-<div class="stat-card">
-    <h2>QCO</h2>
-    <p>Quiz Competition Organization</p>
-</div>
 
-<div class="stat-card">
-    <h2>50 Tk</h2>
-    <p>Registration Fee</p>
-</div>
+  <!-- ================= ABOUT ================= -->
 
-</section><!-- ABOUT --><section class="section"><h2>About QCO</h2>
+  <section class="section">
 
-<div class="card">
+    <div class="section-title">
 
-    <h3>
-        Quiz Competition Organization
-    </h3>
+      <h2>
+        About QCO
+      </h2>
 
-    <p>
-        QCO is an educational organization focused on
-        quiz competitions, knowledge development and
-        student participation.
-    </p>
+      <p>
+        Building knowledge through competition
+      </p>
 
-    <a href="about.html" class="btn">
-        Learn More
-    </a>
+    </div>
 
-</div>
 
-</section><!-- FEATURED EVENT --><section class="section"><h2>Featured Event</h2>
+    <div class="about-card">
 
-<div class="card">
+      <p>
+        <strong>
+          Quiz Competition Organization (QCO)
+        </strong>
+        is a student-run organization focused on
+        quizzes, general knowledge and intellectual
+        development.
+      </p>
 
-    <h2>
-        🏆 QCO National GK Championship 2026
-    </h2>
+      <p>
+        QCO aims to create opportunities for students
+        to participate in competitions, improve their
+        knowledge, develop confidence and discover
+        leadership potential.
+      </p>
 
-    <p>
-        A knowledge-based competition where students
-        can test their general knowledge and compete
-        with other participants.
-    </p>
+      <p>
+        Our goal is to make learning more engaging,
+        competitive and meaningful for students.
+      </p>
 
-    <p>
-        <strong>Registration Fee:</strong> Tk 50
-    </p>
+    </div>
 
-    <a
-        href="https://form.svhrt.com/6a8e5863a00a75349c68c608"
-        class="btn"
-        target="_blank">
+  </section>
 
-        Register Now
 
-    </a>
 
-</div>
+  <!-- ================= FEATURES ================= -->
 
-</section><!-- EXPLORE --><section class="section"><h2>Explore QCO</h2>
+  <section class="section">
 
-<div class="quick-links">
+    <div class="section-title">
 
-    <a href="events.html" class="quick-card">
-        <span class="quick-icon">🏆</span>
-        <strong>Events</strong>
-        <span>Explore competitions</span>
-    </a>
+      <h2>
+        What We Do
+      </h2>
 
-    <a href="results.html" class="quick-card">
-        <span class="quick-icon">🥇</span>
-        <strong>Results</strong>
-        <span>View competition results</span>
-    </a>
+      <p>
+        Learn, compete and grow with QCO
+      </p>
 
-    <a href="leaderboard.html" class="quick-card">
-        <span class="quick-icon">📊</span>
-        <strong>Leaderboard</strong>
-        <span>See top participants</span>
-    </a>
+    </div>
 
-    <a href="contact.html" class="quick-card">
-        <span class="quick-icon">📞</span>
-        <strong>Contact</strong>
-        <span>Contact QCO</span>
-    </a>
 
-</div>
+    <div class="features">
 
-</section><!-- FOOTER --><footer><p>
-    © 2026 QCO. All Rights Reserved.
-</p>
+      <div class="feature">
 
-<p>
-    Quiz Competition Organization
-</p>
+        <div class="feature-icon">
+          🧠
+        </div>
 
-</footer><!-- MENU JAVASCRIPT --><script>
+        <h3>
+          Quiz Competitions
+        </h3>
 
-function openMenu() {
+        <p>
+          Participate in engaging quiz competitions
+          and test your knowledge.
+        </p>
 
-    document.getElementById("sideMenu").classList.add("active");
+      </div>
 
-    document.getElementById("overlay").classList.add("active");
 
-}
+      <div class="feature">
 
-function closeMenu() {
+        <div class="feature-icon">
+          🏆
+        </div>
 
-    document.getElementById("sideMenu").classList.remove("active");
+        <h3>
+          Recognition
+        </h3>
 
-    document.getElementById("overlay").classList.remove("active");
+        <p>
+          Outstanding participants can receive
+          certificates and recognition.
+        </p>
 
-}
+      </div>
 
-</script></body>
-    </html>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          👥
+        </div>
+
+        <h3>
+          Leadership
+        </h3>
+
+        <p>
+          Develop communication, teamwork and
+          leadership skills through QCO.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= CERTIFICATE ================= -->
+
+  <section class="section certificate-section">
+
+    <div class="certificate-box">
+
+      <h2>
+        Certificate Verification
+      </h2>
+
+      <p>
+        Have a QCO certificate?
+        Verify its authenticity using the official
+        Certificate ID.
+      </p>
+
+      <a
+        href="certificate-verification.html"
+        class="certificate-btn"
+      >
+        Verify Certificate
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= EVENTS ================= -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        QCO Events
+      </h2>
+
+      <p>
+        Explore our competitions and activities
+      </p>
+
+    </div>
+
+
+    <div class="event-card">
+
+      <h3>
+        QCO National GK Championship 2026
+      </h3>
+
+      <p>
+        A general knowledge competition organized
+        by Quiz Competition Organization.
+      </p>
+
+    </div>
+
+
+    <div class="event-card">
+
+      <h3>
+        QCO Quiz Competitions
+      </h3>
+
+      <p>
+        Regular quiz activities designed to help
+        students improve their knowledge and
+        competitive skills.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-container">
+
+
+      <div>
+
+        <h3>
+          QCO
+        </h3>
+
+        <p>
+          Quiz Competition Organization
+        </p>
+
+        <p style="margin-top:10px;">
+          Knowledge Creates Champions.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Quick Links
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="events.html">
+              Events
+            </a>
+          </li>
+
+          <li>
+            <a href="results.html">
+              Results
+            </a>
+          </li>
+
+          <li>
+            <a href="certificate-verification.html">
+              Certificate Verification
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Organization
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="about.html">
+              About QCO
+            </a>
+          </li>
+
+          <li>
+            <a href="leaderboard.html">
+              Leaderboard
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 Quiz Competition Organization (QCO).
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script>
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navMenu =
+      document.getElementById("navMenu");
+
+
+    menuBtn.addEventListener(
+      "click",
+      function() {
+
+        navMenu.classList.toggle("active");
+
+      }
+    );
+
+
+    // Close mobile menu after clicking a link
+
+    document
+      .querySelectorAll(".nav-menu a")
+      .forEach(function(link) {
+
+        link.addEventListener(
+          "click",
+          function() {
+
+            navMenu.classList.remove("active");
+
+          }
+        );
+
+      });
+
+  </script>
+
+
+</body>
+   </html>
