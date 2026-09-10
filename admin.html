@@ -1,297 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>QCO Admin Panel</title>
+<title>QCO Admin | Certificate Management</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
 
-    body {
-      background: #f3f6fb;
-      min-height: 100vh;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
 
-    .header {
-      background: #0757b8;
-      color: white;
-      padding: 18px 20px;
-      text-align: center;
-    }
+body{
+  background:#f3f6fb;
+  color:#172033;
+}
 
-    .header h1 {
-      font-size: 24px;
-    }
+.header{
+  background:#0757b8;
+  color:white;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
 
-    .header p {
-      margin-top: 5px;
-      font-size: 13px;
-      opacity: 0.9;
-    }
+.header h1{
+  font-size:25px;
+}
 
-    .container {
-      width: 92%;
-      max-width: 650px;
-      margin: 30px auto;
-    }
+.header p{
+  margin-top:5px;
+  font-size:13px;
+  opacity:.9;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-      margin-bottom: 20px;
-    }
+.container{
+  width:94%;
+  max-width:900px;
+  margin:30px auto;
+}
 
-    .card h2 {
-      color: #0757b8;
-      margin-bottom: 20px;
-      font-size: 21px;
-    }
+.card{
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:22px;
+  box-shadow:0 6px 25px rgba(0,0,0,.07);
+}
 
-    label {
-      display: block;
-      margin: 14px 0 7px;
-      font-weight: bold;
-      color: #333;
-      font-size: 14px;
-    }
+.card h2{
+  color:#0757b8;
+  margin-bottom:20px;
+  font-size:21px;
+}
 
-    input,
-    select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccd5e0;
-      border-radius: 8px;
-      outline: none;
-      font-size: 15px;
-    }
+label{
+  display:block;
+  margin:14px 0 7px;
+  font-size:14px;
+  font-weight:bold;
+}
 
-    input:focus,
-    select:focus {
-      border-color: #0757b8;
-    }
+input,
+select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccd6e2;
+  border-radius:8px;
+  outline:none;
+  font-size:15px;
+}
 
-    button {
-      border: none;
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+input:focus,
+select:focus{
+  border-color:#0757b8;
+}
 
-    .login-btn,
-    .add-btn {
-      width: 100%;
-      background: #0757b8;
-      color: white;
-      margin-top: 20px;
-    }
+button{
+  border:0;
+  border-radius:8px;
+  padding:11px 16px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:14px;
+}
 
-    .login-btn:hover,
-    .add-btn:hover {
-      background: #06458f;
-    }
+.primary{
+  width:100%;
+  margin-top:20px;
+  background:#0757b8;
+  color:white;
+}
 
-    .logout-btn {
-      background: #dc3545;
-      color: white;
-      margin-top: 10px;
-    }
+.primary:hover{
+  background:#06458f;
+}
 
-    .message {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
+.secondary{
+  background:#eef4fb;
+  color:#0757b8;
+}
 
-    .error {
-      color: #dc3545;
-    }
+.danger{
+  background:#dc3545;
+  color:white;
+}
 
-    .success {
-      color: #198754;
-    }
+.warning{
+  background:#ffc107;
+  color:#222;
+}
 
-    #adminPanel {
-      display: none;
-    }
+.success{
+  background:#198754;
+  color:white;
+}
 
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+.login-box{
+  max-width:450px;
+  margin:70px auto;
+}
 
-    .top-row h2 {
-      margin: 0;
-    }
+.message{
+  margin-top:14px;
+  text-align:center;
+  font-weight:bold;
+}
 
-    .certificate-box {
-      border: 1px solid #e0e5eb;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 12px;
-      background: #fafcff;
-    }
+.error{
+  color:#dc3545;
+}
 
-    .certificate-box strong {
-      color: #0757b8;
-    }
+.success-text{
+  color:#198754;
+}
 
-    .empty {
-      text-align: center;
-      color: #777;
-      padding: 15px;
-    }
+#adminPanel{
+  display:none;
+}
 
-    @media (max-width: 500px) {
-      .container {
-        width: 94%;
-      }
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
+}
 
-      .card {
-        padding: 20px;
-      }
+.logout{
+  background:#dc3545;
+  color:white;
+}
 
-      .top-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 18px;
+}
 
-      .logout-btn {
-        width: 100%;
-      }
-    }
-  </style>
+.full{
+  grid-column:1/-1;
+}
+
+.form-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.form-buttons button{
+  flex:1;
+}
+
+.search-box{
+  display:flex;
+  gap:10px;
+}
+
+.search-box input{
+  flex:1;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.stat-number{
+  font-size:28px;
+  font-weight:bold;
+  color:#0757b8;
+}
+
+.stat-label{
+  margin-top:5px;
+  color:#687386;
+  font-size:13px;
+}
+
+.certificate{
+  border:1px solid #e0e6ed;
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:14px;
+  background:#fbfdff;
+}
+
+.certificate-id{
+  color:#0757b8;
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.detail{
+  font-size:14px;
+  margin:5px 0;
+  color:#566174;
+}
+
+.detail strong{
+  color:#222;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.status{
+  display:inline-block;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.status-verified{
+  background:#d9f5e5;
+  color:#198754;
+}
+
+.status-active{
+  background:#e0efff;
+  color:#0757b8;
+}
+
+.status-revoked{
+  background:#ffe1e4;
+  color:#dc3545;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#777;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:650px){
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .topbar{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .search-box{
+    flex-direction:column;
+  }
+
+  .form-buttons{
+    flex-direction:column;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>QCO Admin Panel</h1>
-    <p>Certificate Management System</p>
+
+<div class="header">
+
+  <h1>QCO Admin Panel</h1>
+
+  <p>
+    Certificate Management System
+  </p>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div class="container" id="loginSection">
+
+  <div class="card login-box">
+
+    <h2>Admin Login</h2>
+
+    <label>
+      Admin Password
+    </label>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter admin password"
+    >
+
+    <button
+      class="primary"
+      onclick="login()"
+    >
+      Login
+    </button>
+
+    <div
+      id="loginMessage"
+      class="message"
+    ></div>
+
   </div>
 
-  <div class="container">
+</div>
 
-    <!-- LOGIN -->
-    <div class="card" id="loginBox">
 
-      <h2>Admin Login</h2>
+<!-- ADMIN -->
 
-      <label for="adminPassword">Admin Password</label>
-      <input
-        type="password"
-        id="adminPassword"
-        placeholder="Enter admin password"
+<div
+  class="container"
+  id="adminPanel"
+>
+
+  <div class="topbar">
+
+    <div>
+      <h2>Certificate Management</h2>
+      <p style="color:#687386;font-size:13px;">
+        Manage QCO certificates
+      </p>
+    </div>
+
+    <button
+      class="logout"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+
+  <!-- STATS -->
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <div
+        class="stat-number"
+        id="totalCount"
       >
+        0
+      </div>
 
-      <button class="login-btn" onclick="adminLogin()">
-        Login
-      </button>
-
-      <div id="loginMessage" class="message"></div>
+      <div class="stat-label">
+        Total Certificates
+      </div>
 
     </div>
 
 
-    <!-- ADMIN PANEL -->
-    <div id="adminPanel">
+    <div class="stat">
 
-      <div class="card">
+      <div
+        class="stat-number"
+        id="verifiedCount"
+      >
+        0
+      </div>
 
-        <div class="top-row">
-          <h2>Add Certificate</h2>
+      <div class="stat-label">
+        Verified
+      </div>
 
-          <button class="logout-btn" onclick="logout()">
-            Logout
-          </button>
-        </div>
+    </div>
 
-        <form id="certificateForm">
 
-          <label for="certificateId">
+    <div class="stat">
+
+      <div
+        class="stat-number"
+        id="revokedCount"
+      >
+        0
+      </div>
+
+      <div class="stat-label">
+        Revoked
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADD / EDIT -->
+
+  <div class="card">
+
+    <h2 id="formTitle">
+      Add New Certificate
+    </h2>
+
+
+    <form id="certificateForm">
+
+      <div class="form-grid">
+
+
+        <div>
+
+          <label>
             Certificate ID
           </label>
 
           <input
             type="text"
             id="certificateId"
-            placeholder="Example: QCO-GKC-2026-0001"
+            placeholder="QCO-GKC-2026-0001"
             required
           >
 
+        </div>
 
-          <label for="participantName">
+
+        <div>
+
+          <label>
             Participant Name
           </label>
 
           <input
             type="text"
-            id="participantName"
-            placeholder="Enter participant name"
+            id="name"
+            placeholder="Participant name"
             required
           >
 
+        </div>
 
-          <label for="eventName">
+
+        <div>
+
+          <label>
             Event Name
           </label>
 
           <input
             type="text"
-            id="eventName"
-            placeholder="Example: QCO National GK Championship 2026"
+            id="event"
+            placeholder="Event name"
             required
           >
 
+        </div>
 
-          <label for="achievement">
+
+        <div>
+
+          <label>
             Achievement / Position
           </label>
 
           <input
             type="text"
             id="achievement"
-            placeholder="Example: Champion / Participant / 2nd Position"
+            placeholder="Champion / Participant / 2nd Position"
             required
           >
 
+        </div>
 
-          <label for="studentClass">
+
+        <div>
+
+          <label>
             Class
           </label>
 
           <input
             type="text"
-            id="studentClass"
-            placeholder="Example: Class VII"
+            id="className"
+            placeholder="Class VII"
           >
 
+        </div>
 
-          <label for="institution">
+
+        <div>
+
+          <label>
             Institution
           </label>
 
           <input
             type="text"
             id="institution"
-            placeholder="Enter institution name"
+            placeholder="Institution name"
           >
 
+        </div>
 
-          <label for="issueDate">
+
+        <div>
+
+          <label>
             Issue Date
           </label>
 
@@ -301,19 +558,37 @@
             required
           >
 
+        </div>
 
-          <label for="status">
-            Certificate Status
+
+        <div>
+
+          <label>
+            Status
           </label>
 
           <select id="status">
-            <option value="Verified">Verified</option>
-            <option value="Active">Active</option>
-            <option value="Revoked">Revoked</option>
+
+            <option value="Verified">
+              Verified
+            </option>
+
+            <option value="Active">
+              Active
+            </option>
+
+            <option value="Revoked">
+              Revoked
+            </option>
+
           </select>
 
+        </div>
 
-          <label for="certificateUrl">
+
+        <div class="full">
+
+          <label>
             Certificate URL
           </label>
 
@@ -323,381 +598,804 @@
             placeholder="Optional certificate link"
           >
 
-
-          <button
-            type="submit"
-            class="add-btn"
-          >
-            + Add Certificate
-          </button>
-
-        </form>
-
-        <div id="addMessage" class="message"></div>
-
-      </div>
-
-
-      <!-- CERTIFICATE LIST -->
-
-      <div class="card">
-
-        <h2>Saved Certificates</h2>
-
-        <div id="certificateList">
-          <div class="empty">
-            No certificates added yet.
-          </div>
         </div>
 
       </div>
+
+
+      <div class="form-buttons">
+
+        <button
+          type="submit"
+          class="primary"
+          id="saveButton"
+        >
+          + Add Certificate
+        </button>
+
+        <button
+          type="button"
+          class="secondary hidden"
+          id="cancelButton"
+          onclick="cancelEdit()"
+        >
+          Cancel Edit
+        </button>
+
+      </div>
+
+    </form>
+
+
+    <div
+      id="formMessage"
+      class="message"
+    ></div>
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="card">
+
+    <h2>
+      Search Certificates
+    </h2>
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="search"
+        placeholder="Search by ID or participant name"
+        oninput="loadCertificates()"
+      >
+
+      <button
+        class="secondary"
+        onclick="clearSearch()"
+      >
+        Clear
+      </button>
 
     </div>
 
   </div>
 
 
-  <script>
+  <!-- LIST -->
 
-    /*
-      QCO ADMIN SYSTEM
+  <div class="card">
 
-      Important:
-      This version uses browser LocalStorage
-      because Firebase is not being used.
+    <h2>
+      Certificate List
+    </h2>
 
-      Certificates are stored in this browser.
-    */
+    <div id="certificateList"></div>
 
+  </div>
 
-    const ADMIN_PASSWORD = "imranqco133";
-
-
-    // Login
-    function adminLogin() {
-
-      const password =
-        document.getElementById("adminPassword").value;
-
-      const message =
-        document.getElementById("loginMessage");
+</div>
 
 
-      if (password === ADMIN_PASSWORD) {
-
-        sessionStorage.setItem(
-          "qcoAdminLoggedIn",
-          "true"
-        );
-
-        document.getElementById("loginBox").style.display =
-          "none";
-
-        document.getElementById("adminPanel").style.display =
-          "block";
-
-        message.textContent = "";
-
-        loadCertificates();
-
-      } else {
-
-        message.textContent =
-          "Incorrect admin password.";
-
-        message.className =
-          "message error";
-
-      }
-    }
+<script>
 
 
-    // Check login
-    function checkLogin() {
+/* =========================
+   QCO ADMIN CONFIG
+========================= */
 
-      const loggedIn =
-        sessionStorage.getItem("qcoAdminLoggedIn");
+const ADMIN_PASSWORD = "imranqco133";
 
-
-      if (loggedIn === "true") {
-
-        document.getElementById("loginBox").style.display =
-          "none";
-
-        document.getElementById("adminPanel").style.display =
-          "block";
-
-        loadCertificates();
-
-      }
-    }
+let editingIndex = -1;
 
 
-    // Logout
-    function logout() {
+/* =========================
+   LOGIN
+========================= */
 
-      sessionStorage.removeItem(
-        "qcoAdminLoggedIn"
-      );
+function login(){
 
-      location.reload();
-    }
+  const password =
+    document.getElementById("password").value;
 
-
-    // Get certificates
-    function getCertificates() {
-
-      return JSON.parse(
-        localStorage.getItem("qcoCertificates") || "[]"
-      );
-
-    }
+  const message =
+    document.getElementById("loginMessage");
 
 
-    // Save certificates
-    function saveCertificates(certificates) {
+  if(password === ADMIN_PASSWORD){
 
-      localStorage.setItem(
-        "qcoCertificates",
-        JSON.stringify(certificates)
-      );
+    sessionStorage.setItem(
+      "qcoAdminLoggedIn",
+      "true"
+    );
 
-    }
+    showAdmin();
 
+  }else{
 
-    // Add certificate
-    document
-      .getElementById("certificateForm")
-      .addEventListener("submit", function(event) {
+    message.textContent =
+      "Incorrect admin password.";
 
-        event.preventDefault();
+    message.className =
+      "message error";
 
+  }
 
-        const certificate = {
-
-          id:
-            document.getElementById("certificateId")
-              .value
-              .trim(),
-
-          name:
-            document.getElementById("participantName")
-              .value
-              .trim(),
-
-          event:
-            document.getElementById("eventName")
-              .value
-              .trim(),
-
-          achievement:
-            document.getElementById("achievement")
-              .value
-              .trim(),
-
-          className:
-            document.getElementById("studentClass")
-              .value
-              .trim(),
-
-          institution:
-            document.getElementById("institution")
-              .value
-              .trim(),
-
-          issueDate:
-            document.getElementById("issueDate")
-              .value,
-
-          status:
-            document.getElementById("status")
-              .value,
-
-          certificateUrl:
-            document.getElementById("certificateUrl")
-              .value
-              .trim()
-
-        };
+}
 
 
-        const certificates =
-          getCertificates();
+function showAdmin(){
+
+  document.getElementById("loginSection")
+    .style.display = "none";
+
+  document.getElementById("adminPanel")
+    .style.display = "block";
+
+  loadCertificates();
+
+}
 
 
-        // Check duplicate ID
-        const exists =
+function logout(){
+
+  sessionStorage.removeItem(
+    "qcoAdminLoggedIn"
+  );
+
+  location.reload();
+
+}
+
+
+/* =========================
+   DATA
+========================= */
+
+function getCertificates(){
+
+  return JSON.parse(
+    localStorage.getItem(
+      "qcoCertificates"
+    ) || "[]"
+  );
+
+}
+
+
+function saveCertificates(data){
+
+  localStorage.setItem(
+    "qcoCertificates",
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* =========================
+   AUTO ID
+========================= */
+
+function generateCertificateID(){
+
+  const certificates =
+    getCertificates();
+
+  let number =
+    certificates.length + 1;
+
+  let id;
+
+  do{
+
+    id =
+      "QCO-CERT-2026-" +
+      String(number).padStart(4,"0");
+
+    number++;
+
+  }while(
+    certificates.some(
+      cert =>
+        cert.id.toLowerCase() ===
+        id.toLowerCase()
+    )
+  );
+
+  return id;
+
+}
+
+
+/* =========================
+   FORM SUBMIT
+========================= */
+
+document
+  .getElementById("certificateForm")
+  .addEventListener(
+    "submit",
+    function(e){
+
+      e.preventDefault();
+
+
+      const certificates =
+        getCertificates();
+
+
+      const certificate = {
+
+        id:
+          document
+            .getElementById("certificateId")
+            .value.trim(),
+
+        name:
+          document
+            .getElementById("name")
+            .value.trim(),
+
+        event:
+          document
+            .getElementById("event")
+            .value.trim(),
+
+        achievement:
+          document
+            .getElementById("achievement")
+            .value.trim(),
+
+        className:
+          document
+            .getElementById("className")
+            .value.trim(),
+
+        institution:
+          document
+            .getElementById("institution")
+            .value.trim(),
+
+        issueDate:
+          document
+            .getElementById("issueDate")
+            .value,
+
+        status:
+          document
+            .getElementById("status")
+            .value,
+
+        certificateUrl:
+          document
+            .getElementById("certificateUrl")
+            .value.trim()
+
+      };
+
+
+      /* EDIT */
+
+      if(editingIndex !== -1){
+
+        const duplicate =
           certificates.some(
-            cert =>
+            (cert,index) =>
+              index !== editingIndex &&
               cert.id.toLowerCase() ===
               certificate.id.toLowerCase()
           );
 
 
-        if (exists) {
+        if(duplicate){
 
-          showAddMessage(
-            "This Certificate ID already exists.",
+          showMessage(
+            "Certificate ID already exists.",
             "error"
           );
 
           return;
+
         }
 
 
-        certificates.push(certificate);
+        certificates[editingIndex] =
+          certificate;
+
 
         saveCertificates(certificates);
 
-
-        showAddMessage(
-          "Certificate added successfully!",
-          "success"
+        showMessage(
+          "Certificate updated successfully!",
+          "success-text"
         );
 
-
-        document
-          .getElementById("certificateForm")
-          .reset();
-
+        cancelEdit();
 
         loadCertificates();
 
-      });
-
-
-    // Display certificates
-    function loadCertificates() {
-
-      const certificates =
-        getCertificates();
-
-      const list =
-        document.getElementById("certificateList");
-
-
-      if (certificates.length === 0) {
-
-        list.innerHTML =
-          '<div class="empty">No certificates added yet.</div>';
-
         return;
+
       }
 
 
-      list.innerHTML = "";
+      /* ADD */
+
+      const duplicate =
+        certificates.some(
+          cert =>
+            cert.id.toLowerCase() ===
+            certificate.id.toLowerCase()
+        );
 
 
-      certificates.forEach((cert, index) => {
+      if(duplicate){
 
-        const box =
-          document.createElement("div");
+        showMessage(
+          "Certificate ID already exists.",
+          "error"
+        );
 
-        box.className =
-          "certificate-box";
-
-
-        box.innerHTML = `
-
-          <strong>${escapeHTML(cert.id)}</strong>
-
-          <p>
-            <b>Name:</b>
-            ${escapeHTML(cert.name)}
-          </p>
-
-          <p>
-            <b>Event:</b>
-            ${escapeHTML(cert.event)}
-          </p>
-
-          <p>
-            <b>Achievement:</b>
-            ${escapeHTML(cert.achievement)}
-          </p>
-
-          <p>
-            <b>Status:</b>
-            ${escapeHTML(cert.status)}
-          </p>
-
-          <button
-            style="margin-top:10px;background:#dc3545;color:white;"
-            onclick="deleteCertificate(${index})"
-          >
-            Delete
-          </button>
-
-        `;
-
-
-        list.appendChild(box);
-
-      });
-
-    }
-
-
-    // Delete certificate
-    function deleteCertificate(index) {
-
-      if (
-        !confirm(
-          "Are you sure you want to delete this certificate?"
-        )
-      ) {
         return;
+
       }
 
 
-      const certificates =
-        getCertificates();
-
-
-      certificates.splice(index, 1);
-
+      certificates.push(certificate);
 
       saveCertificates(certificates);
+
+
+      showMessage(
+        "Certificate added successfully!",
+        "success-text"
+      );
+
+
+      document
+        .getElementById("certificateForm")
+        .reset();
+
 
       loadCertificates();
 
     }
+  );
 
 
-    // Message
-    function showAddMessage(
-      text,
-      type
-    ) {
+/* =========================
+   EDIT
+========================= */
 
-      const message =
-        document.getElementById("addMessage");
+function editCertificate(index){
 
-      message.textContent = text;
+  const certificates =
+    getCertificates();
 
-      message.className =
-        "message " + type;
+  const cert =
+    certificates[index];
 
+
+  document.getElementById("certificateId")
+    .value = cert.id;
+
+  document.getElementById("name")
+    .value = cert.name;
+
+  document.getElementById("event")
+    .value = cert.event;
+
+  document.getElementById("achievement")
+    .value = cert.achievement;
+
+  document.getElementById("className")
+    .value = cert.className || "";
+
+  document.getElementById("institution")
+    .value = cert.institution || "";
+
+  document.getElementById("issueDate")
+    .value = cert.issueDate || "";
+
+  document.getElementById("status")
+    .value = cert.status || "Verified";
+
+  document.getElementById("certificateUrl")
+    .value = cert.certificateUrl || "";
+
+
+  editingIndex = index;
+
+
+  document.getElementById("formTitle")
+    .textContent = "Edit Certificate";
+
+  document.getElementById("saveButton")
+    .textContent = "Save Changes";
+
+  document.getElementById("cancelButton")
+    .classList.remove("hidden");
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   CANCEL EDIT
+========================= */
+
+function cancelEdit(){
+
+  editingIndex = -1;
+
+  document
+    .getElementById("certificateForm")
+    .reset();
+
+  document.getElementById("formTitle")
+    .textContent = "Add New Certificate";
+
+  document.getElementById("saveButton")
+    .textContent = "+ Add Certificate";
+
+  document.getElementById("cancelButton")
+    .classList.add("hidden");
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+function deleteCertificate(index){
+
+  const certificates =
+    getCertificates();
+
+  const cert =
+    certificates[index];
+
+
+  const confirmDelete =
+    confirm(
+      "Delete certificate " +
+      cert.id +
+      "?"
+    );
+
+
+  if(!confirmDelete){
+    return;
+  }
+
+
+  certificates.splice(index,1);
+
+  saveCertificates(certificates);
+
+  loadCertificates();
+
+}
+
+
+/* =========================
+   LOAD
+========================= */
+
+function loadCertificates(){
+
+  const certificates =
+    getCertificates();
+
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const filtered =
+    certificates.filter(cert =>
+
+      cert.id
+        .toLowerCase()
+        .includes(search)
+
+      ||
+
+      cert.name
+        .toLowerCase()
+        .includes(search)
+
+    );
+
+
+  updateStats(certificates);
+
+
+  const list =
+    document.getElementById(
+      "certificateList"
+    );
+
+
+  if(filtered.length === 0){
+
+    list.innerHTML =
+      `<div class="empty">
+        No certificates found.
+      </div>`;
+
+    return;
+
+  }
+
+
+  list.innerHTML = "";
+
+
+  filtered.forEach(cert => {
+
+    const realIndex =
+      certificates.indexOf(cert);
+
+
+    const box =
+      document.createElement("div");
+
+    box.className =
+      "certificate";
+
+
+    let statusClass =
+      "status-active";
+
+
+    if(cert.status === "Verified"){
+      statusClass =
+        "status-verified";
     }
 
 
-    // Prevent HTML injection in certificate display
-    function escapeHTML(value) {
-
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
+    if(cert.status === "Revoked"){
+      statusClass =
+        "status-revoked";
     }
 
 
-    // Start
-    checkLogin();
+    box.innerHTML = `
 
-  </script>
+      <div class="certificate-id">
+        ${escapeHTML(cert.id)}
+      </div>
+
+      <div class="detail">
+        <strong>Name:</strong>
+        ${escapeHTML(cert.name)}
+      </div>
+
+      <div class="detail">
+        <strong>Event:</strong>
+        ${escapeHTML(cert.event)}
+      </div>
+
+      <div class="detail">
+        <strong>Achievement:</strong>
+        ${escapeHTML(cert.achievement)}
+      </div>
+
+      <div class="detail">
+        <strong>Institution:</strong>
+        ${escapeHTML(
+          cert.institution || "N/A"
+        )}
+      </div>
+
+      <div class="detail">
+        <strong>Issue Date:</strong>
+        ${escapeHTML(
+          cert.issueDate || "N/A"
+        )}
+      </div>
+
+      <div class="detail">
+        <strong>Status:</strong>
+        <span class="status ${statusClass}">
+          ${escapeHTML(cert.status)}
+        </span>
+      </div>
+
+      <div class="actions">
+
+        <button
+          class="warning"
+          onclick="editCertificate(${realIndex})"
+        >
+          Edit
+        </button>
+
+        <button
+          class="danger"
+          onclick="deleteCertificate(${realIndex})"
+        >
+          Delete
+        </button>
+
+        ${
+          cert.certificateUrl
+          ?
+          `
+          <button
+            class="success"
+            onclick="openCertificate('${escapeJS(cert.certificateUrl)}')"
+          >
+            View
+          </button>
+          `
+          :
+          ""
+        }
+
+      </div>
+
+    `;
+
+
+    list.appendChild(box);
+
+  });
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function updateStats(certificates){
+
+  document.getElementById("totalCount")
+    .textContent =
+      certificates.length;
+
+
+  document.getElementById("verifiedCount")
+    .textContent =
+      certificates.filter(
+        cert =>
+          cert.status === "Verified"
+      ).length;
+
+
+  document.getElementById("revokedCount")
+    .textContent =
+      certificates.filter(
+        cert =>
+          cert.status === "Revoked"
+      ).length;
+
+}
+
+
+/* =========================
+   SEARCH CLEAR
+========================= */
+
+function clearSearch(){
+
+  document.getElementById("search")
+    .value = "";
+
+  loadCertificates();
+
+}
+
+
+/* =========================
+   AUTO ID BUTTON HELPER
+========================= */
+
+document
+  .getElementById("certificateId")
+  .addEventListener(
+    "dblclick",
+    function(){
+
+      if(!this.value){
+
+        this.value =
+          generateCertificateID();
+
+      }
+
+    }
+  );
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(
+  text,
+  type
+){
+
+  const message =
+    document.getElementById(
+      "formMessage"
+    );
+
+  message.textContent =
+    text;
+
+  message.className =
+    "message " + type;
+
+}
+
+
+/* =========================
+   SECURITY HELPERS
+========================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJS(value){
+
+  return String(value)
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
+function openCertificate(url){
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+if(
+  sessionStorage.getItem(
+    "qcoAdminLoggedIn"
+  ) === "true"
+){
+
+  showAdmin();
+
+}
+
+</script>
 
 </body>
-  </html>
+      </html>
