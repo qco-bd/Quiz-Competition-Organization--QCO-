@@ -4,534 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>QCO | Quiz Competition Organization</title>
+<title>QCO - Quiz Competition Organization</title>
+
+<meta name="description"
+content="QCO - Quiz Competition Organization. Learn, Compete, Achieve.">
 
 <style>
+
+/* =========================
+   GLOBAL
+========================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#f4f7fb;
-  color:#172033;
+    font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.6;
 }
 
-/* NAVBAR */
-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#071a3d;
-  padding:15px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 4px 20px rgba(0,0,0,.15);
+a{
+    text-decoration:none;
 }
 
-.logo{
-  color:white;
-  font-size:25px;
-  font-weight:800;
-  letter-spacing:1px;
+img{
+    max-width:100%;
 }
 
-.logo span{
-  color:#ffd54a;
+
+/* =========================
+   HEADER / NAVBAR
+========================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+
+    background:rgba(5,20,52,.96);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,.15);
 }
 
-.nav-links{
-  display:flex;
-  gap:25px;
-  list-style:none;
-}
-
-.nav-links a{
-  color:white;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:600;
-}
-
-.nav-links a:hover{
-  color:#ffd54a;
-}
-
-.menu{
-  display:none;
-  color:white;
-  font-size:27px;
-  cursor:pointer;
-}
-
-/* HERO */
-.hero{
-  min-height:600px;
-  padding:80px 7%;
-  display:flex;
-  align-items:center;
-  background:
-    radial-gradient(circle at 80% 20%,#1d56a8 0%,transparent 35%),
-    linear-gradient(135deg,#061638,#0b2d68 55%,#123f87);
-  color:white;
-}
-
-.hero-content{
-  max-width:850px;
-}
-
-.badge{
-  display:inline-block;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.25);
-  padding:9px 18px;
-  border-radius:30px;
-  margin-bottom:20px;
-  font-size:14px;
-}
-
-.hero h1{
-  font-size:58px;
-  line-height:1.05;
-  margin-bottom:18px;
-}
-
-.hero h1 span{
-  color:#ffd54a;
-}
-
-.hero h2{
-  font-size:27px;
-  margin-bottom:15px;
-}
-
-.hero p{
-  max-width:700px;
-  color:#d9e5ff;
-  font-size:17px;
-  line-height:1.7;
-}
-
-.buttons{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 25px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  transition:.25s;
-}
-
-.btn-gold{
-  background:#ffd54a;
-  color:#071a3d;
-}
-
-.btn-blue{
-  border:1px solid rgba(255,255,255,.4);
-  color:white;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-/* COMMON */
-section{
-  padding:75px 7%;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:45px;
-}
-
-.section-title h2{
-  font-size:35px;
-  color:#071a3d;
-}
-
-.section-title p{
-  color:#68748a;
-  margin-top:10px;
-}
-
-/* QUICK ACCESS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.card{
-  background:white;
-  padding:30px;
-  border-radius:18px;
-  box-shadow:0 8px 30px rgba(18,43,85,.08);
-  border:1px solid #e7edf6;
-  transition:.25s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 35px rgba(18,43,85,.14);
-}
-
-.card-icon{
-  font-size:38px;
-  margin-bottom:15px;
-}
-
-.card h3{
-  color:#09275a;
-  margin-bottom:10px;
-}
-
-.card p{
-  color:#68748a;
-  line-height:1.6;
-}
-
-/* NOTICE */
-.notice-section{
-  background:#071a3d;
-}
-
-.notice-box{
-  max-width:950px;
-  margin:auto;
-  padding:30px;
-  border-radius:20px;
-  background:linear-gradient(135deg,#0e3474,#0a2555);
-  border:1px solid rgba(255,255,255,.15);
-  color:white;
-}
-
-.notice-label{
-  color:#ffd54a;
-  font-weight:800;
-  font-size:14px;
-  letter-spacing:1px;
-  margin-bottom:12px;
-}
-
-.notice-box h3{
-  font-size:25px;
-  margin-bottom:10px;
-}
-
-.notice-box p{
-  color:#dbe7ff;
-  line-height:1.7;
-}
-
-.notice-link{
-  display:inline-block;
-  margin-top:18px;
-  padding:11px 20px;
-  background:#ffd54a;
-  color:#071a3d;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
-}
-
-/* EVENT */
-.event-box{
-  max-width:1000px;
-  margin:auto;
-  background:white;
-  border-radius:22px;
-  padding:35px;
-  box-shadow:0 10px 35px rgba(0,0,0,.08);
-  border-left:6px solid #ffd54a;
-}
-
-.event-box h2{
-  color:#071a3d;
-  margin-bottom:12px;
-}
-
-.event-box p{
-  color:#66738a;
-  line-height:1.7;
-}
-
-.event-info{
-  margin-top:25px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.info{
-  background:#f4f7fb;
-  padding:18px;
-  border-radius:12px;
-}
-
-.info strong{
-  display:block;
-  color:#071a3d;
-  margin-bottom:5px;
-}
-
-/* ABOUT */
-.about{
-  background:#eef3fa;
-}
-
-.about-box{
-  max-width:900px;
-  margin:auto;
-  text-align:center;
-}
-
-.about-box p{
-  line-height:1.8;
-  color:#59677e;
-  font-size:17px;
-}
-
-/* WHAT WE DO */
-.what{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-  max-width:1000px;
-  margin:auto;
-}
-
-.what-item{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  border:1px solid #e4eaf3;
-}
-
-.what-item h3{
-  color:#09275a;
-  margin-bottom:8px;
-}
-
-.what-item p{
-  color:#69758a;
-  line-height:1.6;
-}
-
-/* FOOTER */
-footer{
-  background:#04132d;
-  color:white;
-  padding:45px 7% 20px;
-  text-align:center;
-}
-
-footer h2{
-  color:#ffd54a;
-  margin-bottom:10px;
-}
-
-footer p{
-  color:#b9c8e2;
-  margin:8px 0;
-}
-
-.footer-bottom{
-  margin-top:30px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.12);
-  color:#8292ad;
-  font-size:13px;
-}
-
-/* MOBILE */
-@media(max-width:800px){
-
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:65px;
-    left:0;
+.navbar{
     width:100%;
-    background:#071a3d;
-    flex-direction:column;
-    padding:20px 7%;
-    gap:18px;
-  }
+    max-width:1250px;
 
-  .nav-links.active{
+    margin:auto;
+
+    min-height:72px;
+
+    padding:0 25px;
+
     display:flex;
-  }
-
-  .menu{
-    display:block;
-  }
-
-  .hero{
-    min-height:560px;
-    padding:65px 7%;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero h2{
-    font-size:23px;
-  }
-
-  .cards{
-    grid-template-columns:1fr;
-  }
-
-  .event-info{
-    grid-template-columns:1fr;
-  }
-
-  .what{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:60px 6%;
-  }
-
-  .section-title h2{
-    font-size:29px;
-  }
+    align-items:center;
+    justify-content:space-between;
 }
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav>
-  <div class="logo">QCO<span>.</span></div>
-
-  <div class="menu" onclick="toggleMenu()">☰</div>
-
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="registration.html">Registration</a></li>
-    <li><a href="results.html">Results</a></li>
-    <li><a href="leaderboard.html">Leaderboard</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
 
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
+/* BRAND */
 
-    <div class="badge">QUIZ COMPETITION ORGANIZATION</div>
+.brand{
+    color:#ffffff;
 
-    <h1>
-      WELCOME TO <span>QCO</span>
-    </h1>
+    font-size:21px;
+    font-weight:800;
 
-    <h2>QCO GK Championship 2026</h2>
+    letter-spacing:.3px;
 
-    <p>
-      Test your knowledge, challenge yourself and become a champion.
-      Join QCO and take part in exciting knowledge-based competitions.
-    </p>
+    display:flex;
+    align-items:center;
 
-    <div class="buttons">
-      <a href="registration.html" class="btn btn-gold">
-        Register Now →
-      </a>
+    white-space:nowrap;
+}
 
-      <a href="#events" class="btn btn-blue">
-        Explore Events
-      </a>
-    </div>
+.brand-qco{
+    color:#ffd34e;
+    font-size:26px;
+    margin-right:8px;
+}
 
-  </div>
-</section>
+.brand-divider{
+    width:1px;
+    height:25px;
 
+    background:rgba(255,255,255,.3);
 
-<!-- QUICK ACCESS -->
-<section>
-  <div class="section-title">
-    <h2>Explore QCO</h2>
-    <p>Everything you need, all in one place.</p>
-  </div>
+    margin-right:10px;
+}
 
-  <div class="cards">
-
-    <div class="card">
-      <div class="card-icon">📝</div>
-      <h3>Registration</h3>
-      <p>
-        Register for upcoming QCO competitions and take your first step
-        toward becoming a champion.
-      </p>
-      <br>
-      <a href="registration.html" class="btn btn-gold">
-        Register →
-      </a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🏆</div>
-      <h3>Results</h3>
-      <p>
-        Check competition results and see the performance of participants.
-      </p>
-      <br>
-      <a href="results.html" class="btn btn-gold">
-        View Results →
-      </a>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">🥇</div>
-      <h3>Leaderboard</h3>
-      <p>
-        Discover top performers and celebrate the best participants of QCO.
-      </p>
-      <br>
-      <a href="leaderboard.html" class="btn btn-gold">
-        Leaderboard →
-      </a>
-    </div>
-
-  </div>
-</section>
+.brand-name{
+    color:white;
+}
 
 
-<!-- NOTICE -->
-<section class="notice-section">
-  <div class="section-title">
-    <h2 style="color:white;">Latest Notice</h2>
-    <p style="color:#b9c8e2;">Stay updated with QCO.</p>
-  </div>
+/* NAV LINKS */
 
-  <div class="notice-box">
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:5px;
 
-    <div class="notice-label">📢 IMPORTANT NOTICE</div>
+    list-style:none;
+}
 
-    <h3>
-      QCO GK Championship 2026 এ রেজিস্ট্রেশন চলছে।
-    </h3>
+.nav-menu li{
+    list-style:none;
+}
 
-    <p>
-      দ্রুত রেজিস্ট্রেশন করুন এবং QCO GK Championship 2026
+.nav-menu a{
+    color:#e8efff;
+
+    font-size:14px;
+    font-weight:600;
+
+    padding:10px 13px;
+
+    border-radius:8px;
+
+    transition:.25s;
+}
+
+.nav-menu a:hover{
+    color:#ffd34e;
+    background:rgba(255,255,255,.07);
+}
+
+
+/* REGISTER BUTTON */
+
+.nav-register{
+    background:#ffd34e !important;
+    color:#071a3d !important;
+
+    padding:10px 17px !important;
+
+    font-weight:800 !important;
+}
+
+.nav-register:hover{
+    background:#ffe17a !important;
+    transform:translateY(-1px);
+}
+
+
+/* HAMBURGER */
+
+.menu-toggle
