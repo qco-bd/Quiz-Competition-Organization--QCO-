@@ -23,69 +23,378 @@
        HEADER
   ====================================================== -->
 
-  <header class="site-header">
+  
+<!-- QCO Hamburger Menu -->
+<div class="qco-menu-wrapper">
 
-    <div class="container nav">
+    <!-- Menu Button -->
+    <button class="qco-menu-btn" id="qcoMenuBtn" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-      <!-- QCO BRAND -->
-      <a href="index.html" class="brand" aria-label="QCO Home">
+    <!-- Overlay -->
+    <div class="qco-menu-overlay" id="qcoMenuOverlay"></div>
 
-        <div class="brand-logo">
-          QCO
+    <!-- Side Menu -->
+    <nav class="qco-side-menu" id="qcoSideMenu">
+
+        <div class="qco-menu-header">
+            <div>
+                <h2>QCO</h2>
+                <p>Quiz Competition Organization</p>
+            </div>
+
+            <button class="qco-close-btn" id="qcoCloseBtn">
+                ×
+            </button>
         </div>
 
-        <div class="brand-text">
-          <strong>Quiz Competition</strong>
-          <span>Organization</span>
+        <div class="qco-menu-links">
+
+            <a href="about.html">
+                <span class="menu-icon">ℹ️</span>
+                <span>About</span>
+            </a>
+
+            <a href="certificate-verification.html">
+                <span class="menu-icon">✓</span>
+                <span>Certificate Verification</span>
+            </a>
+
+            <a href="contact.html">
+                <span class="menu-icon">✉️</span>
+                <span>Contact</span>
+            </a>
+
+            <a href="events.html">
+                <span class="menu-icon">📅</span>
+                <span>Events</span>
+            </a>
+
+            <a href="leaderboard.html">
+                <span class="menu-icon">🏆</span>
+                <span>Leaderboard</span>
+            </a>
+
+            <a href="prizes.html">
+                <span class="menu-icon">🎁</span>
+                <span>Prizes</span>
+            </a>
+
+            <a href="registration.html">
+                <span class="menu-icon">📝</span>
+                <span>Registration</span>
+            </a>
+
+            <a href="results.html">
+                <span class="menu-icon">📊</span>
+                <span>Results</span>
+            </a>
+
         </div>
 
-      </a>
+        <div class="qco-menu-footer">
+            <strong>QCO</strong>
+            <span>Knowledge Creates Champions</span>
+        </div>
+
+    </nav>
+</div>
 
 
-      <!-- DESKTOP NAV -->
-      <nav class="desktop-nav">
+<style>
 
-        <a href="index.html" class="active">
-          Home
-        </a>
+/* ================================
+   QCO HAMBURGER MENU
+================================ */
 
-        <a href="about.html">
-          About
-        </a>
+.qco-menu-wrapper {
+    position: relative;
+    z-index: 9999;
+}
 
-        <a href="events.html">
-          Events
-        </a>
+/* Hamburger Button */
 
-        <a href="results.html">
-          Results
-        </a>
+.qco-menu-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 14px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
-        <a href="contact.html">
-          Contact
-        </a>
+.qco-menu-btn:hover {
+    transform: scale(1.05);
+}
 
-      </nav>
-
-
-      <!-- HAMBURGER -->
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open menu"
-        aria-expanded="false">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </button>
-
-    </div>
-
-  </header>
+.qco-menu-btn span {
+    width: 22px;
+    height: 2.5px;
+    background: #0b1f3a;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
 
 
+/* Overlay */
+
+.qco-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 15, 30, 0.45);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.qco-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Side Menu */
+
+.qco-side-menu {
+    position: fixed;
+    top: 0;
+    right: -390px;
+    width: 350px;
+    max-width: 88%;
+    height: 100vh;
+
+    background: #ffffff;
+
+    box-shadow: -10px 0 35px rgba(0,0,0,0.18);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: right 0.35s cubic-bezier(.4,0,.2,1);
+
+    overflow-y: auto;
+}
+
+.qco-side-menu.active {
+    right: 0;
+}
+
+
+/* Header */
+
+.qco-menu-header {
+    padding: 28px 22px 22px;
+
+    background: linear-gradient(
+        135deg,
+        #071d3a,
+        #0d3b66
+    );
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.qco-menu-header h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.qco-menu-header p {
+    margin: 4px 0 0;
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+.qco-close-btn {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 28px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.qco-close-btn:hover {
+    background: #ffffff;
+    color: #071d3a;
+}
+
+
+/* Menu Links */
+
+.qco-menu-links {
+    padding: 16px 12px;
+    flex: 1;
+}
+
+.qco-menu-links a {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 15px;
+    margin-bottom: 5px;
+
+    text-decoration: none;
+
+    color: #172b4d;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    transition: 0.25s ease;
+}
+
+.qco-menu-links a:hover {
+    background: #eef4fb;
+    color: #0b3d91;
+    transform: translateX(4px);
+}
+
+
+/* Icons */
+
+.menu-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f5fa;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+}
+
+.qco-menu-links a:hover .menu-icon {
+    background: #dce9f8;
+}
+
+
+/* Footer */
+
+.qco-menu-footer {
+    padding: 18px 20px;
+
+    border-top: 1px solid #e9edf2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.qco-menu-footer strong {
+    color: #0b2d52;
+    font-size: 14px;
+}
+
+.qco-menu-footer span {
+    color: #7a8699;
+    font-size: 11px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .qco-side-menu {
+        width: 320px;
+    }
+
+    .qco-menu-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+}
+
+
+/* Prevent page scrolling when menu opens */
+
+body.qco-menu-open {
+    overflow: hidden;
+}
+
+</style>
+
+
+<script>
+
+/* ================================
+   QCO MENU JAVASCRIPT
+================================ */
+
+const qcoMenuBtn = document.getElementById("qcoMenuBtn");
+const qcoSideMenu = document.getElementById("qcoSideMenu");
+const qcoMenuOverlay = document.getElementById("qcoMenuOverlay");
+const qcoCloseBtn = document.getElementById("qcoCloseBtn");
+
+function openQCOMenu() {
+    qcoSideMenu.classList.add("active");
+    qcoMenuOverlay.classList.add("active");
+    document.body.classList.add("qco-menu-open");
+}
+
+function closeQCOMenu() {
+    qcoSideMenu.classList.remove("active");
+    qcoMenuOverlay.classList.remove("active");
+    document.body.classList.remove("qco-menu-open");
+}
+
+qcoMenuBtn.addEventListener("click", openQCOMenu);
+
+qcoCloseBtn.addEventListener("click", closeQCOMenu);
+
+qcoMenuOverlay.addEventListener("click", closeQCOMenu);
+
+
+/* ESC key */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeQCOMenu();
+    }
+
+});
+
+  </script>
 
   <!-- =====================================================
        FULL SCREEN MENU
