@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Quiz Competition Organization (QCO) — A student-led platform for knowledge, competition and leadership."
+    content="Quiz Competition Organization (QCO) — Knowledge, Competition and Leadership."
   >
 
   <meta name="theme-color" content="#071a3d">
@@ -18,133 +18,476 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
   <header class="site-header">
 
     <div class="container nav">
 
-      <!-- Logo -->
-      <a href="index.html" class="brand">
+      <!-- QCO BRAND -->
+      <a href="index.html" class="brand" aria-label="QCO Home">
 
-        <span class="brand-main">QCO</span>
+        <div class="brand-logo">
+          QCO
+        </div>
 
-        <small>
-          Quiz Competition Organization
-        </small>
+        <div class="brand-text">
+          <strong>Quiz Competition</strong>
+          <span>Organization</span>
+        </div>
 
       </a>
 
 
-      <!-- Hamburger -->
+      <!-- DESKTOP NAV -->
+      <nav class="desktop-nav">
+
+        <a href="index.html" class="active">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="events.html">
+          Events
+        </a>
+
+        <a href="results.html">
+          Results
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+
+      <!-- HAMBURGER -->
       <button
         class="menu-toggle"
         id="menuToggle"
-        aria-label="Open navigation menu"
+        aria-label="Open menu"
         aria-expanded="false">
 
-        ☰
+        <span></span>
+        <span></span>
+        <span></span>
 
       </button>
-
-
-      <!-- Navigation -->
-      <ul class="nav-links" id="navLinks">
-
-        <li>
-          <a href="index.html" class="active">
-            Home
-          </a>
-        </li>
-
-        <li>
-          <a href="about.html">
-            About
-          </a>
-        </li>
-
-        <li>
-          <a href="events.html">
-            Events
-          </a>
-        </li>
-
-        <li>
-          <a href="registration.html">
-            Registration
-          </a>
-        </li>
-
-        <li>
-          <a href="results.html">
-            Results
-          </a>
-        </li>
-
-        <li>
-          <a href="leaderboard.html">
-            Leaderboard
-          </a>
-        </li>
-
-        <li>
-          <a href="prizes.html">
-            Prizes
-          </a>
-        </li>
-
-        <li>
-          <a href="certificate-verification.html">
-            Certificate Verification
-          </a>
-        </li>
-
-        <li>
-          <a href="contact.html">
-            Contact
-          </a>
-        </li>
-
-        <li>
-          <a href="admin.html" class="admin-link">
-            Admin
-          </a>
-        </li>
-
-      </ul>
 
     </div>
 
   </header>
 
 
-  <!-- ================= MAIN ================= -->
+
+  <!-- =====================================================
+       FULL SCREEN MENU
+  ====================================================== -->
+
+  <div class="menu-overlay" id="menuOverlay">
+
+    <div class="menu-panel">
+
+      <div class="menu-top">
+
+        <div>
+
+          <span class="menu-label">
+            QCO MENU
+          </span>
+
+          <h2>
+            Explore QCO
+          </h2>
+
+        </div>
+
+
+        <button
+          class="menu-close"
+          id="menuClose"
+          aria-label="Close menu">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="menu-grid">
+
+
+        <a href="index.html" class="menu-card current">
+
+          <span class="menu-number">
+            01
+          </span>
+
+          <div>
+            <strong>Home</strong>
+            <small>QCO Overview</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="about.html" class="menu-card">
+
+          <span class="menu-number">
+            02
+          </span>
+
+          <div>
+            <strong>About</strong>
+            <small>Who We Are</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="events.html" class="menu-card">
+
+          <span class="menu-number">
+            03
+          </span>
+
+          <div>
+            <strong>Events</strong>
+            <small>Competitions & Activities</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="registration.html" class="menu-card">
+
+          <span class="menu-number">
+            04
+          </span>
+
+          <div>
+            <strong>Registration</strong>
+            <small>Join a Competition</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="results.html" class="menu-card">
+
+          <span class="menu-number">
+            05
+          </span>
+
+          <div>
+            <strong>Results</strong>
+            <small>Official Results</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="leaderboard.html" class="menu-card">
+
+          <span class="menu-number">
+            06
+          </span>
+
+          <div>
+            <strong>Leaderboard</strong>
+            <small>Rankings & Performance</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="prizes.html" class="menu-card">
+
+          <span class="menu-number">
+            07
+          </span>
+
+          <div>
+            <strong>Prizes</strong>
+            <small>Rewards & Recognition</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="certificate-verification.html" class="menu-card">
+
+          <span class="menu-number">
+            08
+          </span>
+
+          <div>
+            <strong>Certificate Verification</strong>
+            <small>Verify a QCO Certificate</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="contact.html" class="menu-card">
+
+          <span class="menu-number">
+            09
+          </span>
+
+          <div>
+            <strong>Contact</strong>
+            <small>Get in Touch</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+
+        <a href="admin.html" class="menu-card admin-menu">
+
+          <span class="menu-number">
+            10
+          </span>
+
+          <div>
+            <strong>Admin</strong>
+            <small>Administration Panel</small>
+          </div>
+
+          <span class="menu-arrow">
+            →
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <div class="menu-footer">
+
+        <span>
+          Knowledge • Competition • Leadership
+        </span>
+
+        <span>
+          © 2026 QCO
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
   <main>
 
 
-    <!-- ================= HERO ================= -->
-    <section class="hero home-hero">
+    <!-- =================================================
+         HERO
+    ================================================== -->
 
-      <div class="container hero-content">
+    <section class="hero">
 
-        <div class="hero-text">
+      <div class="hero-background-shape shape-one"></div>
+      <div class="hero-background-shape shape-two"></div>
 
-          <span class="eyebrow">
+
+      <div class="container hero-container">
+
+
+        <div class="hero-content">
+
+
+          <div class="hero-tag">
+
+            <span class="pulse-dot"></span>
+
             QUIZ COMPETITION ORGANIZATION
-          </span>
+
+          </div>
+
 
           <h1>
-            Knowledge Creates
-            <span>Champions.</span>
+
+            Knowledge
+            <span>Creates</span>
+            Champions.
+
           </h1>
 
-          <p>
-            A student-led organization dedicated to
-            knowledge, competition, learning and leadership.
+
+          <p class="hero-description">
+
+            A student-led platform dedicated to
+            knowledge, competition, learning and
+            leadership.
+
           </p>
 
-          <a href="about.html" class="btn btn-primary">
-            Discover QCO
+
+          <!-- RECENT RESULTS BUTTON -->
+
+          <a
+            href="results.html"
+            class="btn btn-primary hero-result-button">
+
+            <span class="result-icon">
+              🏆
+            </span>
+
+            <span>
+
+              <small>
+                RECENT RESULTS
+              </small>
+
+              <strong>
+                QCO National GK Championship 2026
+              </strong>
+
+            </span>
+
+            <span class="result-arrow">
+              →
+            </span>
+
           </a>
+
+
+          <div class="hero-note">
+
+            <span>
+              ★
+            </span>
+
+            Learn. Compete. Grow.
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+
+          <div class="hero-circle">
+
+            <div class="circle-inner">
+
+              <span class="circle-small">
+                EST.
+              </span>
+
+              <strong>
+                2025
+              </strong>
+
+              <span class="circle-line"></span>
+
+              <span>
+                QCO
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-card card-top">
+
+            <span class="floating-icon">
+              ?
+            </span>
+
+            <div>
+
+              <strong>
+                THINK
+              </strong>
+
+              <small>
+                Question everything
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-card card-bottom">
+
+            <span class="floating-icon">
+              ✓
+            </span>
+
+            <div>
+
+              <strong>
+                COMPETE
+              </strong>
+
+              <small>
+                Challenge yourself
+              </small>
+
+            </div>
+
+          </div>
+
 
         </div>
 
@@ -153,119 +496,258 @@
     </section>
 
 
-    <!-- ================= ABOUT US ================= -->
-    <section class="section about-home">
+
+    <!-- =================================================
+         QUICK ACCESS
+    ================================================== -->
+
+    <section class="quick-access">
 
       <div class="container">
 
-        <div class="section-heading">
+        <div class="quick-access-grid">
 
-          <span class="section-label">
-            ABOUT US
-          </span>
 
-          <h2>
-            Who We Are
-          </h2>
+          <!-- TODAY'S RESULT -->
+
+          <a
+            href="results.html"
+            class="quick-access-card results-card">
+
+            <div class="quick-card-icon">
+              🏆
+            </div>
+
+
+            <div class="quick-card-content">
+
+              <span>
+                OFFICIAL UPDATE
+              </span>
+
+              <h3>
+                আজকের রেজাল্ট
+              </h3>
+
+              <p>
+                সর্বশেষ প্রতিযোগিতার ফলাফল দেখুন
+              </p>
+
+            </div>
+
+
+            <div class="quick-card-arrow">
+              →
+            </div>
+
+          </a>
+
+
+
+          <!-- LEADERBOARD -->
+
+          <a
+            href="leaderboard.html"
+            class="quick-access-card leaderboard-card">
+
+            <div class="quick-card-icon">
+              📊
+            </div>
+
+
+            <div class="quick-card-content">
+
+              <span>
+                RANKINGS
+              </span>
+
+              <h3>
+                লিডারবোর্ড
+              </h3>
+
+              <p>
+                অংশগ্রহণকারীদের বর্তমান অবস্থান দেখুন
+              </p>
+
+            </div>
+
+
+            <div class="quick-card-arrow">
+              →
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ABOUT US
+    ================================================== -->
+
+    <section class="section about-section">
+
+      <div class="container">
+
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="section-label">
+              ABOUT US
+            </span>
+
+            <h2>
+
+              A platform built around
+              <span>knowledge.</span>
+
+            </h2>
+
+          </div>
+
 
           <p>
-            Quiz Competition Organization (QCO) is a
-            student-led knowledge and quiz organization
-            created to encourage learning, healthy
-            competition and leadership among young people.
+
+            QCO brings together students who believe
+            that learning becomes more meaningful when
+            knowledge is tested, shared and celebrated.
+
           </p>
 
         </div>
 
 
-        <div class="about-content">
+
+        <div class="about-grid">
 
 
-          <!-- About Text -->
-          <div class="about-text">
+          <!-- MAIN ABOUT -->
+
+          <div class="about-main-card">
+
+            <div class="about-card-number">
+              01
+            </div>
+
 
             <h3>
-              Building Knowledge Through Competition
+              What is QCO?
             </h3>
 
-            <p>
-              QCO provides students with opportunities to
-              test their knowledge, participate in quiz
-              competitions and develop confidence through
-              meaningful educational activities.
-            </p>
 
             <p>
-              Our goal is not only to organize quizzes,
-              but also to create an environment where
-              students can learn, compete and grow.
+
+              Quiz Competition Organization (QCO) is
+              a student-led knowledge and quiz
+              organization created to encourage
+              learning, healthy competition and
+              leadership among young people.
+
             </p>
 
-            <a href="about.html" class="text-link">
-              Learn More About QCO →
+
+            <p>
+
+              We aim to create an environment where
+              students can learn, compete and grow
+              through meaningful educational activities.
+
+            </p>
+
+
+            <a
+              href="about.html"
+              class="arrow-link">
+
+              Learn more about QCO
+
+              <span>
+                →
+              </span>
+
             </a>
 
           </div>
 
 
-          <!-- About Highlight -->
-          <div class="about-highlight">
 
-            <div class="highlight-item">
+          <!-- THREE FEATURES -->
 
-              <span class="highlight-number">
+          <div class="about-side-card">
+
+
+            <div class="mini-feature">
+
+              <span class="mini-icon">
                 01
               </span>
 
               <div>
-                <strong>
-                  Knowledge
-                </strong>
+
+                <h4>
+                  Learn
+                </h4>
 
                 <p>
-                  Encouraging continuous learning.
+                  Expand knowledge beyond the classroom.
                 </p>
+
               </div>
 
             </div>
 
 
-            <div class="highlight-item">
 
-              <span class="highlight-number">
+            <div class="mini-feature">
+
+              <span class="mini-icon">
                 02
               </span>
 
               <div>
-                <strong>
-                  Competition
-                </strong>
+
+                <h4>
+                  Compete
+                </h4>
 
                 <p>
-                  Creating opportunities to compete.
+                  Test yourself in meaningful competitions.
                 </p>
+
               </div>
 
             </div>
 
 
-            <div class="highlight-item">
 
-              <span class="highlight-number">
+            <div class="mini-feature">
+
+              <span class="mini-icon">
                 03
               </span>
 
               <div>
-                <strong>
-                  Leadership
-                </strong>
+
+                <h4>
+                  Lead
+                </h4>
 
                 <p>
-                  Developing future leaders.
+                  Build confidence and leadership skills.
                 </p>
+
               </div>
 
             </div>
+
 
           </div>
 
@@ -276,40 +758,601 @@
     </section>
 
 
-    <!-- ================= FOUNDER ================= -->
-    <section class="founder-section">
+
+    <!-- =================================================
+         WHY QCO
+    ================================================== -->
+
+    <section class="section why-section">
 
       <div class="container">
 
-        <div class="founder-card">
 
-          <div class="founder-info">
+        <div class="center-heading">
 
-            <span class="section-label">
-              OUR LEADERSHIP
+          <span class="section-label">
+            OUR PURPOSE
+          </span>
+
+          <h2>
+            More than a competition.
+          </h2>
+
+          <p>
+
+            QCO focuses on the growth that happens
+            before, during and after every competition.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="why-grid">
+
+
+          <div class="why-card">
+
+            <span class="why-number">
+              01
             </span>
 
-            <h2>
-              Founder & Chairman
-            </h2>
-
             <h3>
-              Md. Imran Sarker
+              Knowledge
             </h3>
 
             <p>
-              Founder & Chairman of Quiz Competition
-              Organization (QCO).
+
+              Encourage curiosity and continuous
+              learning through quizzes and
+              educational activities.
+
             </p>
 
           </div>
 
 
-          <div class="founder-mark">
-            QCO
+
+          <div class="why-card featured">
+
+            <span class="why-number">
+              02
+            </span>
+
+            <h3>
+              Confidence
+            </h3>
+
+            <p>
+
+              Give students a platform to challenge
+              themselves and demonstrate what they know.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="why-card">
+
+            <span class="why-number">
+              03
+            </span>
+
+            <h3>
+              Leadership
+            </h3>
+
+            <p>
+
+              Develop communication, responsibility,
+              teamwork and leadership through
+              participation.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         QCO AT A GLANCE
+    ================================================== -->
+
+    <section class="glance-section">
+
+      <div class="container">
+
+
+        <div class="glance-wrapper">
+
+
+          <div class="glance-title">
+
+            <span class="section-label">
+              QCO AT A GLANCE
+            </span>
+
+            <h2>
+              A journey that
+              started in 2025.
+            </h2>
+
+            <p>
+
+              From a simple idea to a growing
+              student-led knowledge community.
+
+            </p>
+
+          </div>
+
+
+
+          <div class="glance-items">
+
+
+            <div class="glance-item">
+
+              <strong>
+                2025
+              </strong>
+
+              <span>
+                Founded
+              </span>
+
+            </div>
+
+
+            <div class="glance-item">
+
+              <strong>
+                QCO
+              </strong>
+
+              <span>
+                Student-led Organization
+              </span>
+
+            </div>
+
+
+            <div class="glance-item">
+
+              <strong>
+                GK
+              </strong>
+
+              <span>
+                Knowledge Competitions
+              </span>
+
+            </div>
+
+
+            <div class="glance-item">
+
+              <strong>
+                ∞
+              </strong>
+
+              <span>
+                Opportunities to Learn
+              </span>
+
+            </div>
+
+
           </div>
 
         </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RECENT MILESTONE
+    ================================================== -->
+
+    <section class="section milestone-section">
+
+      <div class="container">
+
+
+        <div class="section-intro">
+
+          <div>
+
+            <span class="section-label">
+              RECENT MILESTONE
+            </span>
+
+            <h2>
+              QCO National GK
+              Championship 2026
+            </h2>
+
+          </div>
+
+
+          <p>
+
+            A recent national-level general knowledge
+            competition organized by QCO.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="milestone-card">
+
+
+          <div class="milestone-left">
+
+            <span class="completed-badge">
+              COMPLETED
+            </span>
+
+
+            <h3>
+              QCO National GK Championship 2026
+            </h3>
+
+
+            <p>
+
+              A general knowledge focused competition
+              designed to challenge participants across
+              a wide range of GK topics.
+
+            </p>
+
+
+            <div class="milestone-details">
+
+
+              <span>
+
+                <strong>
+                  Date
+                </strong>
+
+                25 September 2026
+
+              </span>
+
+
+              <span>
+
+                <strong>
+                  Category
+                </strong>
+
+                General Knowledge
+
+              </span>
+
+
+            </div>
+
+          </div>
+
+
+
+          <div class="milestone-right">
+
+            <span>
+              OFFICIAL
+            </span>
+
+            <strong>
+              RESULTS
+            </strong>
+
+
+            <a href="results.html">
+              View Results →
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         OFFICIAL WINNERS PREVIEW
+    ================================================== -->
+
+    <section class="section winners-section">
+
+      <div class="container">
+
+
+        <div class="center-heading">
+
+          <span class="section-label">
+            OFFICIAL RESULTS
+          </span>
+
+          <h2>
+            Recent Champions
+          </h2>
+
+          <p>
+            Top positions from the QCO National GK
+            Championship 2026.
+          </p>
+
+        </div>
+
+
+
+        <div class="winner-preview">
+
+
+          <div class="winner-item winner-first">
+
+            <span class="winner-position">
+              01
+            </span>
+
+            <div>
+
+              <strong>
+                Ahnaf Saiyam
+              </strong>
+
+              <small>
+                1st Place
+              </small>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="winner-item">
+
+            <span class="winner-position">
+              02
+            </span>
+
+            <div>
+
+              <strong>
+                Reyad Mahmud Foisal
+              </strong>
+
+              <small>
+                2nd Place
+              </small>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="winner-item">
+
+            <span class="winner-position">
+              03
+            </span>
+
+            <div>
+
+              <strong>
+                Musabbir Rafsan
+              </strong>
+
+              <small>
+                3rd Place
+              </small>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="center-button">
+
+          <a
+            href="results.html"
+            class="btn btn-primary">
+
+            View Full Results →
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         LEADERSHIP
+    ================================================== -->
+
+    <section class="section founder-section">
+
+      <div class="container">
+
+
+        <div class="founder-wrapper">
+
+
+          <div class="founder-label">
+
+            <span class="section-label">
+              LEADERSHIP
+            </span>
+
+            <span class="founder-est">
+              QCO • EST. 2025
+            </span>
+
+          </div>
+
+
+
+          <div class="founder-content">
+
+
+            <div class="founder-initial">
+              Q
+            </div>
+
+
+            <div>
+
+              <h2>
+                Md. Imran Sarker
+              </h2>
+
+              <span class="founder-role">
+                Founder & Chairman
+              </span>
+
+
+              <p>
+
+                Founder and Chairman of Quiz Competition
+                Organization (QCO), working to create
+                meaningful opportunities for students
+                through knowledge and competition.
+
+              </p>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         COMMUNITY
+    ================================================== -->
+
+    <section class="community-section">
+
+      <div class="container">
+
+
+        <div class="community-card">
+
+
+          <div>
+
+            <span class="section-label">
+              STAY CONNECTED
+            </span>
+
+
+            <h2>
+              Be part of the QCO community.
+            </h2>
+
+
+            <p>
+
+              Follow QCO for competition announcements,
+              educational updates and future activities.
+
+            </p>
+
+          </div>
+
+
+
+          <a
+            href="https://www.facebook.com/share/19o4PBDgXw/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="facebook-button">
+
+            <span>
+              f
+            </span>
+
+            Visit QCO on Facebook
+
+            <strong>
+              →
+            </strong>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FINAL CTA
+    ================================================== -->
+
+    <section class="final-cta">
+
+      <div class="container">
+
+        <span>
+          KNOWLEDGE • COMPETITION • LEADERSHIP
+        </span>
+
+
+        <h2>
+          Your next challenge
+          starts here.
+        </h2>
+
+
+        <a
+          href="events.html"
+          class="btn btn-white">
+
+          Explore QCO Events →
+
+        </a>
 
       </div>
 
@@ -319,40 +1362,107 @@
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer class="site-footer">
 
-    <div class="container footer-main">
 
-      <div class="footer-brand">
+    <div class="container footer-grid">
+
+
+      <div class="footer-about">
 
         <div class="footer-logo">
           QCO
         </div>
 
+
         <h3>
           Quiz Competition Organization
         </h3>
 
+
         <p>
-          Knowledge • Competition • Leadership
+          A student-led platform for knowledge,
+          competition and leadership.
         </p>
 
       </div>
 
 
-      <div class="footer-contact">
+
+      <div class="footer-column">
 
         <h4>
-          Contact
+          Explore
         </h4>
 
-        <p>
-          official.qco.bd@gmail.com
-        </p>
+
+        <a href="about.html">
+          About
+        </a>
+
+
+        <a href="events.html">
+          Events
+        </a>
+
+
+        <a href="results.html">
+          Results
+        </a>
+
+
+        <a href="leaderboard.html">
+          Leaderboard
+        </a>
+
+      </div>
+
+
+
+      <div class="footer-column">
+
+        <h4>
+          Services
+        </h4>
+
+
+        <a href="registration.html">
+          Registration
+        </a>
+
+
+        <a href="prizes.html">
+          Prizes
+        </a>
+
+
+        <a href="certificate-verification.html">
+          Certificate Verification
+        </a>
+
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </div>
+
+
+
+      <div class="footer-column">
+
+        <h4>
+          Connect
+        </h4>
+
 
         <a
-          href="https://www.facebook.com/share/1GULsGj4W7/"
+          href="https://www.facebook.com/share/19o4PBDgXw/"
           target="_blank"
           rel="noopener noreferrer">
 
@@ -360,29 +1470,165 @@
 
         </a>
 
+
+        <a href="mailto:official.qco.bd@gmail.com">
+
+          Email
+
+        </a>
+
       </div>
 
+
     </div>
+
 
 
     <div class="footer-bottom">
 
-      <div class="container">
+      <div class="container footer-bottom-inner">
 
-        <p>
+        <span>
           © 2026 Quiz Competition Organization (QCO).
           All rights reserved.
-        </p>
+        </span>
+
+
+        <span>
+          Founded 16 July 2025
+        </span>
 
       </div>
 
     </div>
 
+
   </footer>
 
 
-  <!-- ================= JAVASCRIPT ================= -->
+
+  <!-- =====================================================
+       MENU JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const menuOverlay =
+      document.getElementById("menuOverlay");
+
+    const menuClose =
+      document.getElementById("menuClose");
+
+
+    function openMenu() {
+
+      menuOverlay.classList.add("open");
+
+      document.body.classList.add("menu-open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      menuToggle.classList.add("active");
+
+    }
+
+
+    function closeMenu() {
+
+      menuOverlay.classList.remove("open");
+
+      document.body.classList.remove("menu-open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.classList.remove("active");
+
+    }
+
+
+    menuToggle.addEventListener(
+      "click",
+      function () {
+
+        if (
+          menuOverlay.classList.contains("open")
+        ) {
+
+          closeMenu();
+
+        } else {
+
+          openMenu();
+
+        }
+
+      }
+    );
+
+
+    menuClose.addEventListener(
+      "click",
+      closeMenu
+    );
+
+
+    document
+      .querySelectorAll(".menu-card")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
+      });
+
+
+    menuOverlay.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          event.target === menuOverlay
+        ) {
+
+          closeMenu();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Escape" &&
+          menuOverlay.classList.contains("open")
+        ) {
+
+          closeMenu();
+
+        }
+
+      }
+    );
+
+  </script>
+
+
   <script src="script.js"></script>
 
 </body>
-                              </html>
+  </html>
