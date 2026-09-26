@@ -1,1205 +1,388 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SKBD | Scientific Knowledge of Bangladesh</title>
-  <meta name="description" content="Scientific Knowledge of Bangladesh (SKBD) - Science, technology, research, innovation and youth development in Bangladesh." />
-  <style>
-    :root {
-      --sky: #eef6ff;
-      --bg: #f6f9fc;
-      --card: #ffffff;
-      --navy: #071a3d;
-      --blue: #0b3d91;
-      --blue-2: #1769d1;
-      --green: #1d9b73;
-      --gold: #f4b400;
-      --gold-soft: #ffe8a3;
-      --text: #1d2433;
-      --muted: #5f6d7d;
-      --border: #e4eaf3;
-      --shadow: 0 18px 45px rgba(7, 26, 61, 0.12);
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    * { box-sizing: border-box; }
+  <title>QCO | Quiz Competition Organization</title>
 
-    html { scroll-behavior: smooth; }
+  <meta
+    name="description"
+    content="Quiz Competition Organization (QCO) — A student-led platform for knowledge, competition and leadership."
+  >
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+  <meta name="theme-color" content="#071a3d">
 
-    a { text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 38px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: #eaf3ff;
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 3vw, 3rem);
-      margin: 0 0 10px;
-      color: var(--navy);
-    }
-
-    .section-head p {
-      margin: 0 auto;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(7, 26, 61, 0.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
-    }
-
-    .nav {
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .brand-mark {
-      color: var(--gold);
-    }
-
-    .brand small {
-      font-size: 0.66rem;
-      color: #dfe9f8;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border: 0;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-
-    .nav-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      font-weight: 700;
-      font-size: 0.96rem;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-      color: var(--gold);
-    }
-
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 10px 16px;
-      border-radius: 999px;
-    }
-
-    /* Hero */
-    .hero {
-      background:
-        radial-gradient(circle at 18% 20%, rgba(244, 180, 0, 0.18), transparent 20%),
-        radial-gradient(circle at 84% 75%, rgba(23, 105, 209, 0.25), transparent 26%),
-        linear-gradient(135deg, #04132d 0%, #071a3d 22%, #0b3d91 100%);
-      color: white;
-      padding: 94px 0 52px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 8px 14px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 999px;
-      color: var(--gold);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.5rem, 5vw, 5rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
-
-    .hero h1 .highlight {
-      color: var(--gold);
-    }
-
-    .hero p {
-      max-width: 700px;
-      font-size: 1.08rem;
-      color: #dfeaf7;
-      margin: 0 0 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 26px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-size: 0.96rem;
-      font-weight: 800;
-      border: 2px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border-color: rgba(255,255,255,0.32);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      color: #dfeaf7;
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .stat-panel {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 18px 18px 10px;
-      margin-bottom: 18px;
-    }
-
-    .stat-panel strong {
-      font-size: 2.2rem;
-      color: var(--gold);
-      display: block;
-    }
-
-    .stat-panel span {
-      color: #eaf0f7;
-      font-weight: 700;
-    }
-
-    .mini-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .mini-list li {
-      color: white;
-      font-weight: 700;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    /* Notice */
-    .notice-wrap {
-      margin-top: -18px;
-      position: relative;
-      z-index: 20;
-    }
-
-    .notice {
-      background: white;
-      border-left: 5px solid var(--gold);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      padding: 20px 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .notice strong {
-      color: var(--blue);
-      font-size: 1.05rem;
-    }
-
-    .notice p {
-      margin: 0;
-      color: var(--text);
-      flex: 1;
-    }
-
-    .notice a {
-      font-weight: 800;
-      color: var(--blue);
-    }
-
-    /* Cards */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 26px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: 0 14px 30px rgba(7,26,61,0.06);
-      padding: 28px 24px;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .card .icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #dfeeff, #edf6ff);
-      color: var(--blue);
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-    }
-
-    .about-box {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 30px;
-      box-shadow: 0 14px 34px rgba(7,26,61,0.06);
-    }
-
-    .about-box p {
-      color: var(--muted);
-      margin: 0 0 16px;
-      font-size: 1.04rem;
-    }
-
-    .mission-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .mission-card {
-      background: #f7faff;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px 18px;
-    }
-
-    .mission-card h3 {
-      margin: 0 0 8px;
-      color: var(--blue);
-      font-size: 1.1rem;
-    }
-
-    .mission-card p {
-      margin: 0;
-      font-size: 0.97rem;
-      color: var(--muted);
-    }
-
-    .latest-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .update-item {
-      border-radius: 22px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      box-shadow: 0 14px 28px rgba(7,26,61,0.05);
-    }
-
-    .update-tag {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #fff4cc;
-      color: #a26d00;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 18px 18px 8px;
-    }
-
-    .update-item h3 {
-      margin: 0 18px 10px;
-      color: var(--navy);
-      font-size: 1.15rem;
-    }
-
-    .update-item p {
-      margin: 0 18px 20px;
-      color: var(--muted);
-    }
-
-    .project-feature {
-      background: linear-gradient(135deg, #071952, #0b3d91);
-      color: white;
-      border-radius: 26px;
-      padding: 34px 30px;
-      box-shadow: 0 18px 38px rgba(7,26,61,0.18);
-      margin-top: 18px;
-    }
-
-    .project-feature h3 {
-      margin: 0 0 10px;
-      color: white;
-      font-size: 2rem;
-    }
-
-    .project-feature p {
-      color: #dde8fb;
-      margin: 0 0 18px;
-      max-width: 720px;
-    }
-
-    .project-rows {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      padding: 24px 20px;
-      box-shadow: 0 14px 28px rgba(7,26,61,0.04);
-    }
-
-    .project-card .label {
-      display: inline-block;
-      background: #ebf6ff;
-      color: var(--blue);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .project-card h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 1.2rem;
-    }
-
-    .project-card p {
-      margin: 0 0 12px;
-      color: var(--muted);
-    }
-
-    .project-card small {
-      color: var(--blue);
-      font-weight: 800;
-    }
-
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .article-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px 20px;
-      box-shadow: 0 14px 28px rgba(7,26,61,0.04);
-    }
-
-    .article-card .meta {
-      display: inline-block;
-      color: var(--blue);
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .article-card h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 1.18rem;
-    }
-
-    .article-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .student-box {
-      background: linear-gradient(135deg, #f6fbff, #edf5ff);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 26px;
-      margin-top: 20px;
-    }
-
-    .student-box form {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .form-field.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      width: 100%;
-      border: 1px solid #ccd7ea;
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: white;
-      font: inherit;
-      color: var(--text);
-    }
-
-    .form-field textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .cta-band {
-      background: linear-gradient(135deg, #071952, #1261a0);
-      border-radius: 28px;
-      color: white;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: 0 18px 38px rgba(7,26,61,0.16);
-    }
-
-    .cta-band h3 {
-      margin: 0 0 10px;
-      font-size: clamp(1.8rem, 2vw, 2.5rem);
-      color: white;
-    }
-
-    .cta-band p {
-      margin: 0 auto 22px;
-      max-width: 700px;
-      color: #dfeaf7;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .stat-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px 18px;
-      text-align: center;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.03);
-    }
-
-    .stat-box strong {
-      display: block;
-      font-size: 2.2rem;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-
-    .stat-box span {
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 26px;
-    }
-
-    .contact-item {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 26px 18px;
-      text-align: center;
-      box-shadow: 0 12px 22px rgba(7,26,61,0.04);
-    }
-
-    .contact-item h3 {
-      margin: 0 0 10px;
-      color: var(--blue);
-      font-size: 1.08rem;
-    }
-
-    .contact-item a,
-    .contact-item span {
-      color: var(--navy);
-      font-weight: 700;
-    }
-
-    /* Footer */
-    footer {
-      background: #04132d;
-      color: white;
-      padding: 58px 0 24px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr;
-      gap: 36px;
-      margin-bottom: 30px;
-    }
-
-    .footer-brand {
-      font-size: 2rem;
-      font-weight: 900;
-      color: white;
-      margin-bottom: 12px;
-    }
-
-    .footer-brand .brand-mark {
-      color: var(--gold);
-    }
-
-    .footer-copy {
-      color: #d1dbef;
-      max-width: 440px;
-      margin: 0;
-    }
-
-    .footer-col h4 {
-      margin: 0 0 14px;
-      color: var(--gold);
-      font-size: 1.02rem;
-    }
-
-    .footer-col a {
-      display: block;
-      color: #dfeaf7;
-      margin: 8px 0;
-      font-weight: 600;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.14);
-      padding-top: 18px;
-      text-align: center;
-      color: #a7b7d0;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero-inner,
-      .grid-3,
-      .latest-list,
-      .project-rows,
-      .articles-grid,
-      .contact-grid,
-      .footer-grid,
-      .mission-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .grid-4,
-      .stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        left: 16px;
-        right: 16px;
-        top: 82px;
-        background: #081b3d;
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 18px;
-        box-shadow: 0 16px 30px rgba(0,0,0,0.14);
-        display: none;
-        flex-direction: column;
-        padding: 16px;
-        align-items: flex-start;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .grid-3,
-      .grid-4,
-      .latest-list,
-      .mission-grid,
-      .project-rows,
-      .articles-grid,
-      .contact-grid,
-      .footer-grid,
-      .stats,
-      .student-box form {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
-      .hero {
-        padding-top: 74px;
-      }
-
-      .notice {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+
     <div class="container nav">
-      <a href="#top" class="brand" aria-label="SKBD home">
-        <span class="brand-mark">SKBD</span>
-        <small>Scientific Knowledge of Bangladesh</small>
+
+      <!-- Logo -->
+      <a href="index.html" class="brand">
+
+        <span class="brand-main">QCO</span>
+
+        <small>
+          Quiz Competition Organization
+        </small>
+
       </a>
 
-      <button class="menu-toggle" aria-label="Open menu">☰</button>
 
+      <!-- Hamburger -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+
+        ☰
+
+      </button>
+
+
+      <!-- Navigation -->
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#registration">Registration</a></li>
-        <li><a href="#articles">Articles</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#join" class="nav-cta">Join Us</a></li>
+
+        <li>
+          <a href="index.html" class="active">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="events.html">
+            Events
+          </a>
+        </li>
+
+        <li>
+          <a href="registration.html">
+            Registration
+          </a>
+        </li>
+
+        <li>
+          <a href="results.html">
+            Results
+          </a>
+        </li>
+
+        <li>
+          <a href="leaderboard.html">
+            Leaderboard
+          </a>
+        </li>
+
+        <li>
+          <a href="prizes.html">
+            Prizes
+          </a>
+        </li>
+
+        <li>
+          <a href="certificate-verification.html">
+            Certificate Verification
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            Contact
+          </a>
+        </li>
+
+        <li>
+          <a href="admin.html" class="admin-link">
+            Admin
+          </a>
+        </li>
+
       </ul>
+
     </div>
+
   </header>
 
-  <main id="top">
-    <section class="hero" id="home">
-      <div class="container hero-inner">
-        <div>
-          <div class="hero-badge">Science • Technology • Innovation</div>
-          <h1>Scientific Knowledge of Bangladesh <span class="highlight">(SKBD)</span></h1>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero home-hero">
+
+      <div class="container hero-content">
+
+        <div class="hero-text">
+
+          <span class="eyebrow">
+            QUIZ COMPETITION ORGANIZATION
+          </span>
+
+          <h1>
+            Knowledge Creates
+            <span>Champions.</span>
+          </h1>
+
           <p>
-            বিজ্ঞান ও প্রযুক্তির হাত ধরে আগামীর স্মার্ট ও উদ্ভাবনী বিশ্ব গড়ার লক্ষ্যে তরুণ প্রজন্মকে প্রস্তুত করাই আমাদের অঙ্গীকার। আসুন, কৌতূহলকে জাগিয়ে তুলি এবং নতুন আবিষ্কারের পথে একসাথে এগিয়ে যাই।
+            A student-led organization dedicated to
+            knowledge, competition, learning and leadership.
           </p>
 
-          <div class="hero-actions">
-            <a href="#join" class="btn btn-primary">আমাদের সাথে যুক্ত হোন</a>
-            <a href="#projects" class="btn btn-secondary">প্রজেক্টসমূহ দেখুন</a>
-          </div>
+          <a href="about.html" class="btn btn-primary">
+            Discover QCO
+          </a>
 
-          <div class="hero-meta">
-            <span>🔬 STEM Education</span>
-            <span>🤖 Robotics & AI</span>
-            <span>🌾 Smart Agriculture</span>
-          </div>
         </div>
 
-        <div class="hero-card" aria-label="SKBD highlights">
-          <div class="stat-panel">
-            <strong>10+</strong>
-            <span>Scientific initiatives and active learning projects</span>
-          </div>
-
-          <ul class="mini-list">
-            <li>✅ Smart Agriculture Irrigation System</li>
-            <li>✅ Air Defense & Environmental Monitoring</li>
-            <li>✅ AI and Cyber Security Awareness Programs</li>
-          </ul>
-        </div>
       </div>
+
     </section>
 
-    <div class="container notice-wrap">
-      <div class="notice">
-        <strong>📌 জরুরি নোটিশ:</strong>
-        <p>কার্যকরী কমিটির সকল সদস্যকে আগামী ১ সেপ্টেম্বরের মধ্যে মাসিক ফি (৫০ টাকা) নির্দিষ্ট নম্বরে (নগদ: ০১৭২৯৭৫৮৫৩০) জমা দেওয়ার জন্য বিনীত অনুরোধ করা হচ্ছে।</p>
-        <a href="#registration">ফি জমা দিন →</a>
-      </div>
-    </div>
 
-    <section class="section" id="about">
+    <!-- ================= ABOUT US ================= -->
+    <section class="section about-home">
+
       <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">About Us</div>
-          <h2>আমাদের সম্পর্কে - এক নজরে</h2>
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            ABOUT US
+          </span>
+
+          <h2>
+            Who We Are
+          </h2>
+
           <p>
-            SKBD (Scientific Knowledge of Bangladesh) হলো ব���জ্ঞানমনস্ক শিক্ষার্থী ও তরুণদের একটি সক্রিয় প্ল্যাটফর্ম। আমাদের মূল উদ্দেশ্য হলো দেশব্যাপী বিজ্ঞানের প্রচার ও প্রসার ঘটানো, শিক্ষার্থীদের মাঝে ব্যবহারিক গবেষণার আগ্রহ তৈরি করা এবং রোবোটিক্স, কৃত্রিম বুদ্ধিমত্তা (AI) ও স্মার্ট কৃষি প্রযুক্তির মতো আধুনিক বিষয়গুলোতে তাদের দক্ষ করে তোলা।
+            Quiz Competition Organization (QCO) is a
+            student-led knowledge and quiz organization
+            created to encourage learning, healthy
+            competition and leadership among young people.
           </p>
+
         </div>
 
-        <div class="about-box">
-          <p><strong>Mission:</strong> বাংলাদেশে বিজ্ঞান ও আধুনিক প্রযুক্তির ব্যাপক প্রসার ঘটানো এবং তরুণ সমাজকে হাতে-কলমে গবেষণায় উদ্বুদ্ধ করা।</p>
-          <p><strong>Vision:</strong> শিক্ষার্থীদের সৃজনশ��লতাকে কাজে লাগিয়ে স্মার্ট এগ্রিকালচার, রোবোটিক্স, পরিবেশ মনিটরিং ও কৃত্রিম বুদ্ধিমত্তা (AI)-ভিত্তিক বাস্তবমুখী সমাধানের মাধ্যমে একটি উদ্ভাবনী ও বিজ্ঞানমনস্ক সমাজ গড়ে তোলা।</p>
 
-          <div class="mission-grid">
-            <div class="mission-card">
-              <h3>Leadership</h3>
-              <p>প্রতিষ্ঠাতা ও সভাপতি: SKBD-এর দৃষ্টিভঙ্গি ও লক্ষ্য নির্ধারণে মূল নেতৃত্ব দানকারী।</p>
-            </div>
-            <div class="mission-card">
-              <h3>Executive Committee</h3>
-              <p>সার্বিক সিদ্ধান্ত গ্রহণ, পরিচালনা ও দিকনির্দেশনার জন্য কেন্দ্রীয় পরিচালনা পর্ষদ।</p>
-            </div>
-            <div class="mission-card">
-              <h3>Regional Teams</h3>
-              <p>বিভাগীয় টিমের মাধ্যমে গবেষণা, ইভেন্ট ও কর্মসূচি পরিচালনা ও সম্প্রসারণ।</p>
-            </div>
+        <div class="about-content">
+
+
+          <!-- About Text -->
+          <div class="about-text">
+
+            <h3>
+              Building Knowledge Through Competition
+            </h3>
+
+            <p>
+              QCO provides students with opportunities to
+              test their knowledge, participate in quiz
+              competitions and develop confidence through
+              meaningful educational activities.
+            </p>
+
+            <p>
+              Our goal is not only to organize quizzes,
+              but also to create an environment where
+              students can learn, compete and grow.
+            </p>
+
+            <a href="about.html" class="text-link">
+              Learn More About QCO →
+            </a>
+
           </div>
+
+
+          <!-- About Highlight -->
+          <div class="about-highlight">
+
+            <div class="highlight-item">
+
+              <span class="highlight-number">
+                01
+              </span>
+
+              <div>
+                <strong>
+                  Knowledge
+                </strong>
+
+                <p>
+                  Encouraging continuous learning.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="highlight-item">
+
+              <span class="highlight-number">
+                02
+              </span>
+
+              <div>
+                <strong>
+                  Competition
+                </strong>
+
+                <p>
+                  Creating opportunities to compete.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="highlight-item">
+
+              <span class="highlight-number">
+                03
+              </span>
+
+              <div>
+                <strong>
+                  Leadership
+                </strong>
+
+                <p>
+                  Developing future leaders.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="section" id="updates">
+
+    <!-- ================= FOUNDER ================= -->
+    <section class="founder-section">
+
       <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Latest Updates</div>
-          <h2>সাম্প্রতিক নোটিশ ও কার্যক্রম</h2>
+
+        <div class="founder-card">
+
+          <div class="founder-info">
+
+            <span class="section-label">
+              OUR LEADERSHIP
+            </span>
+
+            <h2>
+              Founder & Chairman
+            </h2>
+
+            <h3>
+              Md. Imran Sarker
+            </h3>
+
+            <p>
+              Founder & Chairman of Quiz Competition
+              Organization (QCO).
+            </p>
+
+          </div>
+
+
+          <div class="founder-mark">
+            QCO
+          </div>
+
         </div>
 
-        <div class="latest-list">
-          <article class="update-item">
-            <div class="update-tag">Notice</div>
-            <h3>Monthly Membership Fee</h3>
-            <p>যে সকল সদস্য কার্যকরী কমিটির অন্তর্ভুক্ত, তাদের মাসিক ফি ৫০ টাকা নির্দিষ্ট সময়ে জমা দেওয়ার জন্য অনুরোধ করা হয়েছে।</p>
-          </article>
-
-          <article class="update-item">
-            <div class="update-tag">Projects</div>
-            <h3>Smart Agriculture & Air Defense</h3>
-            <p>আমাদের স্মার্ট এগ্রিকালচার ইরিগেশন সিস্টেম ও এয়ার ডিফেন্স ও পরিবেশ মনিটরিং প্রজেক্ট সফলভাবে এগিয়ে চলছে।</p>
-          </article>
-
-          <article class="update-item">
-            <div class="update-tag">Success</div>
-            <h3>National Science Carnival</h3>
-            <p>National Science & Creative Carnival-এ SKBD-এর সদস্যদের সফল অংশগ্রহণ ও অলিম্পিয়াডের প্রস্তুতিমূলক ক্লাস চলমান রয়েছে।</p>
-          </article>
-        </div>
       </div>
+
     </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Projects & Events</div>
-          <h2>চলমান গবেষণামূলক প্রজেক্ট ও আসন্ন আয়োজন</h2>
-        </div>
 
-        <div class="project-feature">
-          <h3>Science, Technology and Community Innovation</h3>
-          <p>আমাদের লক্ষ্য হলো তরুণদের হাতে-কলমে গবেষণা, প্রযুক্তি ব্যবহার এবং বাস্তবমুখী সমস্যার সমাধানে দক্ষ করে তোলা।</p>
-          <a href="#registration" class="btn btn-primary">Join an Event</a>
-        </div>
-
-        <div class="project-rows">
-          <article class="project-card">
-            <div class="label">Smart Agriculture</div>
-            <h3>Smart Agriculture Automated Irrigation System</h3>
-            <p>সৌরশক্তি চালিত জিরো-ওয়েস্ট পাওয়ার ও ওয়াটার সেন্সর প্রযুক্তির মাধ্যমে ফসলি জমিতে পানির সঠিক ব্যবহার নিশ্চিত করে।</p>
-            <small>Current update: sensor calibration and circuit design in final phase.</small>
-          </article>
-
-          <article class="project-card">
-            <div class="label">Environment Monitoring</div>
-            <h3>Air Defense & Environment Monitoring System</h3>
-            <p>Arduino ও ESP32 কন্ট্রোলার, L298N মোটর ড্রাইভার এবং পরিবেশগত সেন্সর ব্যবহার করে উন্নত পর্যবেক্ষণ ব্যবস্থা তৈরি করা হচ্ছে।</p>
-            <small>Current update: ESP32 prototype and encrypted data test are successful.</small>
-          </article>
-
-          <article class="project-card">
-            <div class="label">Cybersecurity</div>
-            <h3>Cyber Security Awareness & Data Protection Tools</h3>
-            <p>শিক্ষার্থীদের অনলাইন নিরাপত্তা, স্ক্যাম ও হ্যাকিং প্রতিরোধে সচেতনতার উপর ভিত্তি করে টুলস ও নির্দেশিকা পরিকল্পনা করা হচ্ছে।</p>
-            <small>Current update: safe internet guide and security framework ongoing.</small>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="events">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Upcoming Events</div>
-          <h2>আসন্ন আয়োজন ও কার্যক্রম</h2>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <div class="icon">🧠</div>
-            <h3>জাতীয় অনলাইন সায়েন্স ও আইসিটি কুইজ প্রতিযোগিতা</h3>
-            <p>বিজ্ঞান, ICT, সাইবার সিকিউরিটি ও AI-ভিত্তিক প্রশ্নের সমন্বয়ে শিক্ষার্থীদের দক্ষতা যাচাইয়ের বিশেষ আয়োজন।</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🤖</div>
-            <h3>কৃত্রিম বুদ্ধিমত্তা ও সাইবার নিরাপত্তা ওয়েবিনার</h3>
-            <p>Python, AI, Cyber Security-এর মৌলিক নীতি ও অনলাইন নিরাপত্তার ওপর ফ্রি মাস্টারক্লাস।</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🔧</div>
-            <h3>সায়েন্স ও আইসিটি প্রজেক্ট এক্সপো ও ওয়ার্কশপ</h3>
-            <p>বিদ্যালয়ের শি���্ষার্থীদের হাতে-কলমে সেন্সর, ইলেকট্রনিক্স ও নেটওয়ার্কিং প্রজেক্ট তৈরির প্রশিক্ষণ।</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="articles">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Science Articles & Research</div>
-          <h2>বিজ্ঞান ও গবেষণা</h2>
-        </div>
-
-        <div class="articles-grid">
-          <article class="article-card">
-            <div class="meta">AI & Education</div>
-            <h3>কৃত্রিম বুদ্ধিমত্তা ও শিক্ষা ব্যবস্থা</h3>
-            <p>শিক্ষাক্ষেত্রে AI-এর ভূমিকা, সম্ভাবনা এবং ডেটা সুরক্ষার প্রয়োজনীয়তা নিয়ে বিশদ আলোচনা।</p>
-          </article>
-
-          <article class="article-card">
-            <div class="meta">Robotics</div>
-            <h3>রোবোটিক্স ও অটোমেশন</h3>
-            <p>আধুনিক শিল্প ও গবেষণায় রোবোটিক সলিউশনের ব্যবহার ও Arduino/ESP32 প্রজেক্ট নির্মাণের প্রাথমিক নির্দেশনা।</p>
-          </article>
-
-          <article class="article-card">
-            <div class="meta">Physics</div>
-            <h3>পদার্থবিজ্ঞান ও প্রাক্টিক্যাল থিওরি</h3>
-            <p>জটিল তত্ত্বকে সহজে বোঝাতে ল্যাব প্র্যাকটিক্যাল ও শিক্ষণ কৌশলসহ তরুণ গবেষকদের জন্য নিবন্ধ।</p>
-          </article>
-        </div>
-
-        <div class="student-box" id="join">
-          <div class="section-head" style="margin-bottom: 20px;">
-            <div class="eyebrow">Student Corner</div>
-            <h2 style="font-size: clamp(1.8rem, 2vw, 2.5rem);">শিক্ষার্থীদের প্রজেক্ট আইডিয়া সাবমিশন</h2>
-          </div>
-
-          <form>
-            <div class="form-field">
-              <label>শিক্ষার্থীর নাম ও প্রতিষ্ঠানের বিবরণ</label>
-              <input type="text" placeholder="আপনার নাম ও প্রতিষ্ঠান" />
-            </div>
-
-            <div class="form-field">
-              <label>আইডিয়ার বিষয় / ক্যাটাগরি</label>
-              <select>
-                <option>AI & ICT</option>
-                <option>Robotics</option>
-                <option>Smart Farming</option>
-                <option>Physics/General Science</option>
-              </select>
-            </div>
-
-            <div class="form-field full">
-              <label>প্রজেক্ট বা গবেষণার নাম</label>
-              <input type="text" placeholder="প্রজেক্টের নাম লিখুন" />
-            </div>
-
-            <div class="form-field full">
-              <label>প্রজেক্টের মূল উদ্দেশ্য ও কার্যকারিতা</label>
-              <textarea placeholder="আপনার ধারণার বর্ণনা লিখুন"></textarea>
-            </div>
-
-            <div class="form-field full">
-              <label>প্রয়োজনীয় সাহায্য</label>
-              <input type="text" placeholder="কারিগরি পরামর্শ, মেটেরিয়াল সাপোর্ট, ফান্ডিং/গাইডলাইন" />
-            </div>
-
-            <div class="form-field full">
-              <button type="submit" class="btn btn-primary" style="width: fit-content;">আইডিয়া জমা দিন</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="registration">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Registration</div>
-          <h2>নিবন্ধন</h2>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <div class="icon">📝</div>
-            <h3>Member Registration</h3>
-            <p>নতুন সদস্য হিসেবে আবেদন করুন এবং বিজ্ঞান, প্রযুক্তি ও আইসিটি কার্যক্রমে যুক্ত হোন।</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">💳</div>
-            <h3>Monthly Fee Payment</h3>
-            <p>কার্যকরী কমিটির সদস্যদের জন্য মাসিক ফি জমা ও ভেরিফিকেশন ফর্ম।</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🎉</div>
-            <h3>Event Registration</h3>
-            <p>কুইজ, ওয়ার্কশপ ও বিজ্ঞান প্রতিযোগিতায় অংশগ্রহণের জন্য রেজিস্ট্রেশন করুন।</p>
-          </article>
-        </div>
-
-        <div class="cta-band" style="margin-top: 30px;">
-          <h3>আমাদের সাথে যুক্ত হোন</h3>
-          <p>বিজ্ঞান, প্রযুক্তি ও উদ্ভাবনী কার্যক্রমে অংশগ্রহণের জন্য আবেদন জমা দিন।</p>
-          <a href="#contact" class="btn btn-primary">Apply Now</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Wall of Fame</div>
-          <h2>অর্জন ও সাফল্যের তা���িকা</h2>
-        </div>
-
-        <div class="stats">
-          <div class="stat-box">
-            <strong>2026</strong>
-            <span>National Science Carnival</span>
-          </div>
-          <div class="stat-box">
-            <strong>AI</strong>
-            <span>Robotics & AI Training</span>
-          </div>
-          <div class="stat-box">
-            <strong>QCO</strong>
-            <span>Online Quiz Leadership</span>
-          </div>
-          <div class="stat-box">
-            <strong>100+</strong>
-            <span>Students engaged</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Contact Us</div>
-          <h2>যোগাযোগ</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-item">
-            <h3>Central Office</h3>
-            <span>গাইবান্ধা, রংপুর বিভাগ, বাংলাদেশ</span>
-          </div>
-
-          <div class="contact-item">
-            <h3>Hotline</h3>
-            <a href="tel:+8801729758530">+880 1729-758530</a>
-          </div>
-
-          <div class="contact-item">
-            <h3>Email</h3>
-            <a href="mailto:skbd.official.info@gmail.com">skbd.official.info@gmail.com</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="footer-brand"><span class="brand-mark">SKBD</span></div>
-        <p class="footer-copy">Scientific Knowledge of Bangladesh (SKBD) বিজ্ঞান ও প্রযুক্তির আলো ছড়িয়ে দিতে কাজ করছে তরুণদের মধ্��ে সৃজনশীলতা, গবেষণা ও উদ্ভাবনকে উৎসাহিত করতে।</p>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+          QCO
+        </div>
+
+        <h3>
+          Quiz Competition Organization
+        </h3>
+
+        <p>
+          Knowledge • Competition • Leadership
+        </p>
+
       </div>
 
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#events">Events</a>
-        <a href="#registration">Registration</a>
+
+      <div class="footer-contact">
+
+        <h4>
+          Contact
+        </h4>
+
+        <p>
+          official.qco.bd@gmail.com
+        </p>
+
+        <a
+          href="https://www.facebook.com/share/1GULsGj4W7/"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Facebook
+
+        </a>
+
       </div>
 
-      <div class="footer-col">
-        <h4>Social Links</h4>
-        <a href="https://facebook.com/skbd.official">Facebook</a>
-        <a href="https://facebook.com/groups/skbd.community">Community Group</a>
-        <a href="https://youtube.com/@SKBDOfficial">YouTube</a>
-        <a href="https://linkedin.com/company/skbd">LinkedIn</a>
-      </div>
     </div>
 
-    <div class="container footer-bottom">
-      © <span id="year"></span> Scientific Knowledge of Bangladesh (SKBD). All rights reserved.
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <p>
+          © 2026 Quiz Competition Organization (QCO).
+          All rights reserved.
+        </p>
+
+      </div>
+
     </div>
+
   </footer>
 
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.getElementById('navLinks');
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+  <!-- ================= JAVASCRIPT ================= -->
+  <script src="script.js"></script>
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
-</html>
+                              </html>
